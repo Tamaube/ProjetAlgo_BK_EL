@@ -14,6 +14,7 @@ class LecteurImage
     private:
         unsigned int tailleX;
         unsigned int tailleY;
+        Pixel **tabPixels;
 };
 
 #endif // LECTEURIMAGE_H
