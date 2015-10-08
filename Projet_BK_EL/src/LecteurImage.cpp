@@ -41,8 +41,8 @@ LecteurImage::~LecteurImage()
 LecteurImage::lireMetaDonnees() {
 
         string chaine1;
-        fichier >> chaine1 >> tailleX >> tailleY ;      /* On lit le premier champ qui correspond à au type de données*/
-        fichier >> tailleX ;                            /* On lit la taille horizontale du tableau */
-        fichier >> tailleY ;                            /* On lit la taille vertical du tableau */
+        fichier >> chaine1 ;                    /* On lit le premier champ qui correspond à au type de données*/
+        fichier >> tailleX ;                    /* On lit la taille horizontale du tableau */
+        fichier >> tailleY ;                    /* On lit la taille vertical du tableau */
 
 }
