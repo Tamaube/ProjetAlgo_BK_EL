@@ -34,10 +34,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Ensemble.h" />
 		<Unit filename="include/LecteurImage.h" />
+		<Unit filename="include/Pixel.h" />
+		<Unit filename="include/WriteFic.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Ensemble.cpp" />
 		<Unit filename="src/LecteurImage.cpp" />
 		<Unit filename="src/Pixel.cpp" />
+		<Unit filename="src/WriteFic.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
