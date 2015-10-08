@@ -12,6 +12,8 @@ class LecteurImage
         ~LecteurImage();
     protected:
     private:
+        unsigned int tailleX;
+        unsigned int tailleY;
 };
 
 #endif // LECTEURIMAGE_H
