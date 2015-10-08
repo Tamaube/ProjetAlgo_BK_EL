@@ -7,10 +7,24 @@ class Ensemble {
 private:
     Pixel _head;
     Pixel _tail;
-    int size;
+    int _size;
 
 public:
     Ensemble(Pixel x);
+    ~Ensemble();
+
+    Pixel getHead() { return this._head;}
+    Pixel getTail() { return this._tail;}
+
+    int getSize(){ return this._size;}
+
+    //Ajoute un pixel à la fin de l'ensemble
+    void addPixel(Pixel p);
+
+    //Ajoute un ensemble à la fin, e est le plus petit ensemble
+    void addEnsemble_inTail(Ensemble e);
+
+
 };
 
 
