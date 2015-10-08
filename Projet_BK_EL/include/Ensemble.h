@@ -10,10 +10,11 @@ private:
     int _size;
 
 public:
+    //Make set
     Ensemble(Pixel x);
     ~Ensemble();
 
-    Pixel getHead() { return this._head;}
+    Pixel getHead() { return this._head;}//Recuperer le representant dun ensemble
     Pixel getTail() { return this._tail;}
 
     int getSize(){ return this._size;}

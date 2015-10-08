@@ -15,7 +15,8 @@ private:
         int getX() { return this._x;}
         int getY() { return this._y;}
 
-        Pixel getHead() {return this._head;}
+
+        Pixel getHead() {return this._head;}//Recuperer le representant dun ensemble
         Pixel getNext() {return this._next;}
 
         void setHead(Pixel head){this._head = head;}
