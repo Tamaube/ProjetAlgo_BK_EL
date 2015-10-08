@@ -7,29 +7,26 @@ LecteurImage::LecteurImage()
     ifstream fichier("vigne", ios::in);
 
     if(fichier){
-        int entier1, entier2;
-        string chaine1;
 
 
-        fichier >> chaine1 >> tailleX >> tailleY ;  /*on lit jusqu'à l'espace et on stocke ce qui est lu dans la variable indiquée */
+        lireMetaDonnees ();
 
         unsigned char bit;
         tabPixels = malloc(sizeof(void *)*tailleX*tailleY);
 
-        for (unsigned int j = 0; j < tailleY; j++) {
-            for (unsigned int i = 0; i < tailleX; i++) {
+        for (unsigned int j = 0; j < tailleY; j++) { // "j" représente le numéro de la ligne (variable en Y)
+            for (unsigned int i = 0; i < tailleX; i++) { // "j" représente le numéro de la colonne (variable en X)
 
                 fichier >> bit;
-                if(bit == O) {
-                    Pixel tabPixels[i*j] = new Pixel(i, j);
+                if(bit == 0) {
+                    Pixel tabPixels[i + (tailleX * j)] = new Pixel(i, j);
                 }else {
                     tabPixels[i*j] = nullptr;
                 }
             }
         }
 
-    }
-    else
+    } else
         cerr << "Impossible d'ouvrir le fichier !" << endl;
 
     return 0;
@@ -38,4 +35,14 @@ LecteurImage::LecteurImage()
 LecteurImage::~LecteurImage()
 {
     fichier.close();
+}
+
+
+LecteurImage::lireMetaDonnees() {
+
+        string chaine1;
+        fichier >> chaine1 >> tailleX >> tailleY ;      /* On lit le premier champ qui correspond à au type de données*/
+        fichier >> tailleX ;                            /* On lit la taille horizontale du tableau */
+        fichier >> tailleY ;                            /* On lit la taille vertical du tableau */
+
 }

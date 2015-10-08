@@ -15,6 +15,7 @@ class LecteurImage
         unsigned int tailleX;
         unsigned int tailleY;
         Pixel **tabPixels;
+        ifstream fichier;
 };
 
 #endif // LECTEURIMAGE_H
