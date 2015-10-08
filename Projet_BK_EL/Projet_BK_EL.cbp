@@ -37,6 +37,7 @@
 		<Unit filename="include/LecteurImage.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/LecteurImage.cpp" />
+		<Unit filename="src/Pixel.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
