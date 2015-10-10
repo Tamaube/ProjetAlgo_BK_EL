@@ -12,6 +12,10 @@ class LecteurImage
         ~LecteurImage();
     protected:
     private:
+        unsigned int tailleX;
+        unsigned int tailleY;
+        Pixel **tabPixels;
+        ifstream fichier;
 };
 
 #endif // LECTEURIMAGE_H
