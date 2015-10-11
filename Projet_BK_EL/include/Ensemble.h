@@ -3,6 +3,7 @@
 
 #include "Pixel.h"
 
+//Ensemble de pixel
 class Ensemble {
 private:
     Pixel * _head;

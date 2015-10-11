@@ -16,7 +16,7 @@ private:
     int nbrLig;
 
 public:
-    WriteFic();
+    WriteFic(int nbrLig, int nbrCol);
     ~WriteFic();
 
     void ajEnsembleTable(Ensemble *tabEnsemble, int tailleTab, string *tabColor);

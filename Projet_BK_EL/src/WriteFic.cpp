@@ -1,7 +1,25 @@
 #include "WriteFic.h"
 
+WriteFic::WriteFic(int nbrLig, int nbrCol)
+{
+    this->nbrCol = nbrCol;
+    this->nbrLig = nbrLig;
 
-void WriteFic::writeThePPMFic(){
+    for(int i = 0; i < this->nbrLig; ++i)
+    {
+        for(int j = 0; j < this->nbrCol; ++j)
+        {
+            this->tab2D_color[i][j] = "0 0 0";
+        }
+    }
+}
+
+/*
+    ecrit le fichier ppm
+    utilise la matrice tab2D_color pour le contenu du fichier
+*/
+void WriteFic::writeThePPMFic()
+{
     ofstream fic("result.ppm", ios::out | ios::trunc);
 
     if(fic)
@@ -15,7 +33,12 @@ void WriteFic::writeThePPMFic(){
         {
             for(int j = 0; j < this->nbrCol; j++)
             {
-                fic << this->tab2D_color[i][j] << " ";
+                if(this->tab2D_color[i][j] == "0 0 0")
+                {
+                    fic << this->tab2D_color[i][j] << " ";
+                } else {
+                    cerr << "Erreur: le pixel a deja ete colore";
+                }
             }
             fic << endl;
         }
@@ -27,6 +50,12 @@ void WriteFic::writeThePPMFic(){
 
 }
 
+/*
+    Permet de stocker la couleur de chaque case dans une matrice tab2D_color
+    tabEnsemble : le tableau contenant tous les ensemble de couleur
+    tailleTab: taille du tableau tabEnsemble et du tabColor
+    tabColor: tableau de couleur pour chaque ensemble
+*/
 void WriteFic::ajEnsembleTable(Ensemble *tabEnsemble, int tailleTab, string *tabColor)
 {
     for(int i = 0; i < tailleTab; i++)
