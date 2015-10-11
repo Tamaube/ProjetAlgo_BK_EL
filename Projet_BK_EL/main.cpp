@@ -4,6 +4,6 @@ using namespace std;
 
 int main()
 {
-    cout << "j'apporte mon livre d'histoire-géo" << endl;
+    cout << "Alex est le mal dominant" << endl;
     return 0;
 }
