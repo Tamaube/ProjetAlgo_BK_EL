@@ -5,25 +5,25 @@
 
 class Ensemble {
 private:
-    Pixel _head;
-    Pixel _tail;
+    Pixel* _head;
+    Pixel* _tail;
     int _size;
 
 public:
     //Make set
-    Ensemble(Pixel x);
+    Ensemble(Pixel* x);
     ~Ensemble();
 
-    Pixel getHead() { return this._head;}//Recuperer le representant dun ensemble
-    Pixel getTail() { return this._tail;}
+    Pixel* getHead() { return this->_head;}//Recuperer le representant d'un ensemble
+    Pixel* getTail() { return this->_tail;}
 
-    int getSize(){ return this._size;}
+    int getSize(){ return this->_size;}
 
     //Ajoute un pixel à la fin de l'ensemble
-    void addPixel(Pixel p);
+    void addPixel(Pixel* p);
 
     //Ajoute un ensemble à la fin, e est le plus petit ensemble
-    void addEnsemble_inTail(Ensemble e);
+    void addEnsemble_inTail(Ensemble* e);
 
 
 };
