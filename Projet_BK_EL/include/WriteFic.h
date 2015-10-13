@@ -1,9 +1,12 @@
 #ifndef WRITEFIC_H_INCLUDED
 #define WRITEFIC_H_INCLUDED
 
+#include <iostream>
 #include <fstream>
 #include "Pixel.h"
 #include "Ensemble.h"
+
+using namespace std;
 
 class WriteFic {
 private:
