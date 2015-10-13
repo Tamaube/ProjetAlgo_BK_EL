@@ -16,7 +16,7 @@ private:
         int getY() { return _y;}
 
 
-        Pixel* getHead() {return _head;}//Recuperer le representant dun ensemble
+        Pixel* getHead() {return _head;}//Recuperer le representant dun ensemble, findSet
         Pixel* getNext() {return _next;}
 
         void setHead(Pixel* head){this->_head = head;}

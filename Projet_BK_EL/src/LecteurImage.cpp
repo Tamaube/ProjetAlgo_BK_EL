@@ -19,7 +19,7 @@ LecteurImage::LecteurImage()
 
                 fichier >> bit;
                 if(bit == 0) {
-                     tabPixels[i + (tailleX * j)] = new Pixel(i, j);
+                    Pixel tabPixels[i + (tailleX * j)] = new Pixel(i, j);
                 }else {
                     tabPixels[i*j] = nullptr;
                 }
@@ -28,7 +28,6 @@ LecteurImage::LecteurImage()
 
     } else
         cerr << "Impossible d'ouvrir le fichier !" << endl;
-
 }
 
 LecteurImage::~LecteurImage()

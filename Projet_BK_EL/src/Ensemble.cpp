@@ -29,4 +29,5 @@ void Ensemble::addEnsemble_inTail(Ensemble* e){
 
     this->_size += e->getSize();
     this->_tail->setNext(e->getHead());
+    this->_tail = e->getTail();
 }
