@@ -4,14 +4,22 @@ WriteFic::WriteFic(int nbrLig, int nbrCol)
 {
     this->nbrCol = nbrCol;
     this->nbrLig = nbrLig;
+    this->tab2D_color = new char*[this->nbrLig * this->nbrCol];
+
+//    this->tab2D_color = &tab[0];
 
     for(int i = 0; i < this->nbrLig; ++i)
     {
         for(int j = 0; j < this->nbrCol; ++j)
         {
-            this->tab2D_color[i][j] = "0 0 0";
+//            this->tab2D_color[i * this->nbrCol + j] = (string *) malloc(sizeof(string) * 12);
+            this->tab2D_color[i * this->nbrCol + j] = "0 0 0";
+
         }
+        cout << " ";
     }
+
+
 }
 
 /*
@@ -21,9 +29,9 @@ WriteFic::WriteFic(int nbrLig, int nbrCol)
 void WriteFic::writeThePPMFic()
 {
     ofstream fic("result.ppm", ios::out | ios::trunc);
-
     if(fic)
     {
+
         //Debut du fichier
         fic << "P3 " << endl << this->nbrCol << " " << this->nbrLig << endl;
         fic << "255" << endl;
@@ -33,12 +41,13 @@ void WriteFic::writeThePPMFic()
         {
             for(int j = 0; j < this->nbrCol; j++)
             {
+//                 cout << **(this->tab2D_color + (i * j)) << " ";
 
-                if(this->tab2D_color[i][j] == "0 0 0")
+                if (strcmp(this->tab2D_color[i * this->nbrCol + j], "0 0 0"))
                 {
-                    fic << this->tab2D_color[i][j] << " ";
+                    fic <<  this->tab2D_color[i * this->nbrCol + j] << " ";
                 } else {
-                    cerr << "Erreur: le pixel a deja ete colore";
+                    cerr << "Erreur: le pixel " << i << " " << j << " = " <<" a deja ete colore" << endl;
                 }
             }
             fic << endl;
@@ -57,15 +66,19 @@ void WriteFic::writeThePPMFic()
     tailleTab: taille du tableau tabEnsemble et du tabColor
     tabColor: tableau de couleur pour chaque ensemble
 */
-void WriteFic::ajEnsembleTable(Ensemble *tabEnsemble, int tailleTab, string *tabColor)
+void WriteFic::ajEnsembleTable(Ensemble **tabEnsemble, int tailleTab, char *tabColor[])
 {
+
     for(int i = 0; i < tailleTab; i++)
     {
-        Pixel * p = (*(tabEnsemble + i)).getHead();
-        for(int j = 0; j < (*(tabEnsemble + i)).getSize(); j++)
+        Pixel * p = (**(tabEnsemble + i)).getHead();
+        int size_ensemble = (**(tabEnsemble + i)).getSize();
+        for(int j = 0; j < size_ensemble; j++)
         {
-            this->tab2D_color[p->getX()][p->getY()] = *(tabColor + i);
+
+            this->tab2D_color[(p->getX() *  this->nbrCol) + p->getY()] = tabColor[i];
             p = p->getNext();
         }
     }
+
 }

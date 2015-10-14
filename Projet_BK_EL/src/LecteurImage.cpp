@@ -19,7 +19,7 @@ LecteurImage::LecteurImage()
 
                 fichier >> bit;
                 if(bit == 0) {
-                    Pixel tabPixels[i + (tailleX * j)] = new Pixel(i, j);
+                    tabPixels[i + (tailleX * j)] = new Pixel(i, j);
                 }else {
                     tabPixels[i*j] = nullptr;
                 }
