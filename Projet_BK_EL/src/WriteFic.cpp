@@ -4,19 +4,18 @@ WriteFic::WriteFic(int nbrLig, int nbrCol)
 {
     this->nbrCol = nbrCol;
     this->nbrLig = nbrLig;
+
+    //Allocation de l espace
     this->tab2D_color = new char*[this->nbrLig * this->nbrCol];
 
-//    this->tab2D_color = &tab[0];
-
+    //initialisation de toute les cases du tab à noir
     for(int i = 0; i < this->nbrLig; ++i)
     {
         for(int j = 0; j < this->nbrCol; ++j)
         {
-//            this->tab2D_color[i * this->nbrCol + j] = (string *) malloc(sizeof(string) * 12);
             this->tab2D_color[i * this->nbrCol + j] = "0 0 0";
 
         }
-        cout << " ";
     }
 
 
@@ -41,8 +40,6 @@ void WriteFic::writeThePPMFic()
         {
             for(int j = 0; j < this->nbrCol; j++)
             {
-//                 cout << **(this->tab2D_color + (i * j)) << " ";
-
                 if (strcmp(this->tab2D_color[i * this->nbrCol + j], "0 0 0"))
                 {
                     fic <<  this->tab2D_color[i * this->nbrCol + j] << " ";
