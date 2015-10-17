@@ -4,6 +4,7 @@
 Pixel::Pixel (int x, int y){
     this->_x = x;
     this->_y = y;
+    this->pixelNoir = false;
 }
 Pixel::Pixel (int x, int y, bool noir){
     this->_x = x;
