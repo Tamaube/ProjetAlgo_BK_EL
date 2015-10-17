@@ -14,7 +14,6 @@ WriteFic::WriteFic(int nbrLig, int nbrCol)
         for(int j = 0; j < this->nbrCol; ++j)
         {
             this->tab2D_color[i * this->nbrCol + j] = "0 0 0";
-
         }
     }
 

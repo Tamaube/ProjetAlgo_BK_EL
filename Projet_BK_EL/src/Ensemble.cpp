@@ -1,5 +1,5 @@
 #include "Ensemble.h"
-
+#include <cstdlib>
 
 Ensemble::Ensemble(Pixel* x) {
     this->_size = 1;
@@ -30,4 +30,5 @@ void Ensemble::addEnsemble_inTail(Ensemble* e){
     this->_size += e->getSize();
     this->_tail->setNext(e->getHead());
     this->_tail = e->getTail();
+    free(e); //on détruit l'autre ensemble qui ne contient plus aucun pixel.
 }

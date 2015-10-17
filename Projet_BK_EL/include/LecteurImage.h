@@ -14,7 +14,7 @@ class LecteurImage
 
 
     public:
-        LecteurImage();
+        LecteurImage(string nomImage);
         ~LecteurImage();
         void lireMetaDonnees();
         unsigned int tailleX;   //Nombre de pixel en horizontal

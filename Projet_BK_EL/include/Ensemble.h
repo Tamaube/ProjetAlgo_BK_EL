@@ -4,10 +4,12 @@
 #include "Pixel.h"
 
 //Ensemble de pixel
+class Pixel;
+
 class Ensemble {
 private:
-    Pixel * _head;
-    Pixel * _tail;
+    Pixel* _head;
+    Pixel* _tail;
     int _size;
 
 public:
