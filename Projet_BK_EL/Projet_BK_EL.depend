@@ -1,8 +1,10 @@
 # depslib dependency file v1.0
-1445081832 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
+1445083798 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
 	<iostream>
 	"LecteurImage.h"
 	"testWriteFic.h"
+	"WriteFic.h"
+	"WriteFic.h"
 
 1444765631 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\ensemble.cpp
 	"Ensemble.h"
@@ -12,7 +14,7 @@
 
 1445079966 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\pixel.h
 
-1445082163 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\lecteurimage.cpp
+1445082449 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\lecteurimage.cpp
 	"LecteurImage.h"
 
 1445075990 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\lecteurimage.h
@@ -24,8 +26,7 @@
 
 1444764970 D
 
-1444557539 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
-	"Pixel.h"
+1445070719 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
 	"Pixel.h"
 
 1445079050 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
@@ -66,14 +67,16 @@
 1444580431 84e6153a1acfbcb440a6ee0089ef7157a3f79
 	"Pixel.h"
 
-1444765906 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
+1445082527 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
+	"WriteFic.h"
 
-1445069708 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\writefic.h
+1445083870 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\writefic.h
 	<iostream>
 	<fstream>
 	<string>
 	<cstdlib>
 	<string.h>
+	<ctime>
 	"Pixel.h"
 	"Ensemble.h"
 
@@ -99,7 +102,7 @@
 	"Pixel.h"
 	"WriteFic.h"
 
-1445073646 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\test\testwritefic.cpp
+1445083248 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\test\testwritefic.cpp
 	"testWriteFic.h"
 
 1445069708 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\testwritefic.h
