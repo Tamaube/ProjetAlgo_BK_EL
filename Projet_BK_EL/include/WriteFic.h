@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include <fstream>
-#include <iostream>
+#include <string>
+#include <cstdlib>
 #include <string.h>
 #include "Pixel.h"
 #include "Ensemble.h"
@@ -12,7 +13,7 @@ using namespace std;
 
 class WriteFic {
 private:
-    string **tab2D_color;
+    char** tab2D_color;
     int nbrCol;
     int nbrLig;
 
@@ -20,7 +21,7 @@ public:
     WriteFic(int nbrLig, int nbrCol);
     ~WriteFic();
 
-    void ajEnsembleTable(Ensemble *tabEnsemble, int tailleTab, string *tabColor);
+    void ajEnsembleTable(Ensemble **tabEnsemble, int tailleTab, char *tabColor[]);
     void writeThePPMFic();
 
     void generate();

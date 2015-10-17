@@ -33,7 +33,6 @@ LecteurImage::LecteurImage()
         cout << "taille du malloc  :   "<< tailleX*tailleY *sizeof(Pixel) << " octets "<< endl;
 
 
-
         tabPixels = (Pixel*) malloc(sizeof(Pixel) * tailleX * tailleY );
 
         string ligne;
@@ -42,6 +41,7 @@ LecteurImage::LecteurImage()
             for (unsigned int i = 0; i<ligne.size(); i++) {
                 if (ligne[i] == '0') {
                     tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX);
+
                 }else {
                     tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX, true);
                 }
