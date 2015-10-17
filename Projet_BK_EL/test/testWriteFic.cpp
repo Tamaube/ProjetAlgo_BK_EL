@@ -10,7 +10,7 @@ void testEcriture()
     WriteFic * wf;
     wf = new WriteFic(2, 2);
 
-    wf->ajEnsembleTable(p, 4, tabColor);
+    //wf->ajEnsembleTable(p, 4, tabColor);
 
     wf->writeThePPMFic();
 

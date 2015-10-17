@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1445099641 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
+1445105979 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
 	<iostream>
 	"LecteurImage.h"
 	"testWriteFic.h"
@@ -29,7 +29,7 @@
 
 1444764970 D
 
-1445095879 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
+1445102879 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
 	"Pixel.h"
 
 1445079050 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
@@ -70,10 +70,10 @@
 1444580431 84e6153a1acfbcb440a6ee0089ef7157a3f79
 	"Pixel.h"
 
-1445096215 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
+1445120967 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
 	"WriteFic.h"
 
-1445083870 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\writefic.h
+1445120936 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\writefic.h
 	<iostream>
 	<fstream>
 	<string>
@@ -82,6 +82,7 @@
 	<ctime>
 	"Pixel.h"
 	"Ensemble.h"
+	<vector>
 
 1445069708 h"
 
@@ -105,7 +106,7 @@
 	"Pixel.h"
 	"WriteFic.h"
 
-1445083248 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\test\testwritefic.cpp
+1445119472 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\test\testwritefic.cpp
 	"testWriteFic.h"
 
 1445069708 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\testwritefic.h

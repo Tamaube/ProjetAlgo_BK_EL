@@ -1,5 +1,51 @@
 #include "WriteFic.h"
 
+char* WriteFic::getRandomColor() {
+    unsigned char c1 = rand()%256;
+    unsigned char c2 = rand()%256;
+    unsigned char c3 = rand()%256;
+
+    char* result = new char[10];
+    result =  "           ";
+
+    result[0] = c1/100;
+    result[1] = (c1/10)%10;
+    result[2] = c1%10;
+
+
+    result[4] = c2/100;
+    result[5] = (c2/10)%10;
+    result[6] = c2%10;
+
+
+    result[8] = c3/100;
+    result[9] = (c3/10)%10;
+    result[10] = c3%10;
+
+    return result;
+}
+
+char* WriteFic::getCouleurEnsemble(Ensemble* e) {
+
+    bool trouve = false;
+    std::vector<Ensemble*>::iterator itor;
+    int i = 0;
+    for (itor = listEnsemble.begin (); itor != listEnsemble.end (); ++itor) {
+        if (*itor == e) {
+            trouve = true;
+        }else {
+            i++;
+        }
+    }
+    if (!trouve) {
+        listEnsemble.push_back(e);
+        listColor.push_back(getRandomColor());
+    }
+
+    return listColor[i];
+
+}
+
 WriteFic::WriteFic(int nbrLig, int nbrCol)
 {
     this->nbrCol = nbrCol;
@@ -22,6 +68,8 @@ WriteFic::WriteFic(int nbrLig, int nbrCol)
 
 WriteFic::WriteFic()
 {
+    srand (time(0));
+    itorColor = listColor.begin();
 }
 
 /*
@@ -66,19 +114,22 @@ void WriteFic::writeThePPMFic()
     tailleTab: taille du tableau tabEnsemble et du tabColor
     tabColor: tableau de couleur pour chaque ensemble
 */
-void WriteFic::ajEnsembleTable(Ensemble **tabEnsemble, int tailleTab, char *tabColor[])
+void WriteFic::ajEnsembleTable(Pixel* tableauPixels, unsigned int tailleTab )
 {
 
-    for(int i = 0; i < tailleTab; i++)
+    tab2D_color = (char**) malloc(sizeof(char*)*tailleTab);
+    for(unsigned int i = 0; i < tailleTab; i++)
     {
-        Pixel * p = (**(tabEnsemble + i)).getHead();
+        tab2D_color[i] = getCouleurEnsemble(tableauPixels[i].getEnsemble());
+
+        /*Pixel * p = (**(tabEnsemble + i)).getHead();
         int size_ensemble = (**(tabEnsemble + i)).getSize();
         for(int j = 0; j < size_ensemble; j++)
         {
 
             this->tab2D_color[(p->getX() *  this->nbrCol) + p->getY()] = tabColor[i];
             p = p->getNext();
-        }
+        }*/
     }
 
 }
@@ -92,7 +143,7 @@ void WriteFic::generate (int n, int m)
          //Debut du fichier
         fic << "P1 " << endl << m << " " << n << endl;
         fic << "255" << endl;
-        srand (time(0));
+
         //Contenu du fichier
         for(int i = 0; i < n; ++i)
         {

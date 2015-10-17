@@ -84,11 +84,11 @@ int main()
 
     Algorithme_Union();
 
-
-
-
-
     WriteFic *wf = new WriteFic(Dimension_Y, Dimension_X);
+
+    wf->ajEnsembleTable(TableauPixels, Dimension_X*Dimension_Y);
+
+    wf->writeThePPMFic();
 
 
     //wf->generate(5,5);
