@@ -1,46 +1,97 @@
 #include "LecteurImage.h"
 
+
 LecteurImage::LecteurImage()
 {
 
 
-    ifstream fichier("vigne", ios::in);
+    ifstream fichier("vigne.pbm", ios::in);
 
     if(fichier){
 
+        string entete;
+        string dimension;
 
-        lireMetaDonnees ();
+        getline(fichier, entete);
 
-        unsigned char bit;
-        tabPixels = (Pixel**) malloc(sizeof(void *)*tailleX*tailleY);
+        cout << "entete = " << entete << endl;
 
-        for (unsigned int j = 0; j < tailleY; j++) { // "j" représente le numéro de la ligne (variable en Y)
-            for (unsigned int i = 0; i < tailleX; i++) { // "j" représente le numéro de la colonne (variable en X)
+        getline(fichier, dimension);
 
-                fichier >> bit;
-                if(bit == 0) {
-                    Pixel tabPixels[i + (tailleX * j)] = new Pixel(i, j);
+        int separation = dimension.find(' ');
+
+
+        std::string chaine_Taillex = dimension.substr(0, separation);
+        std::string chaine_Tailley = dimension.substr(separation + 1, dimension.size() -1);
+        cout << "\"" << chaine_Taillex  << "\" " << "\"" << chaine_Tailley  << "\""  << endl;
+        //DEBUG
+
+        tailleX = (unsigned int) atoi((char*)chaine_Taillex.c_str());
+        tailleY = (unsigned int) atoi((char*)chaine_Tailley.c_str());
+
+        cout << "taille de l'image :   " << tailleX << " x "<<tailleY << endl;
+        cout << "taille du malloc  :   "<< tailleX*tailleY *sizeof(Pixel) << " octets "<< endl;
+
+
+
+        tabPixels = (Pixel*) malloc(sizeof(Pixel) * tailleX * tailleY );
+
+        string ligne;
+        unsigned int nbCharLu = 0;
+        while (getline(fichier, ligne)) {
+            for (unsigned int i = 0; i<ligne.size(); i++) {
+                if (ligne[i] == '0') {
+                    tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX);
                 }else {
-                    tabPixels[i*j] = nullptr;
+                    tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX, true);
                 }
             }
+            nbCharLu++;
         }
+
 
     } else
         cerr << "Impossible d'ouvrir le fichier !" << endl;
+
+
+    fichier.close();
 }
 
 LecteurImage::~LecteurImage()
 {
-    fichier.close();
+
 }
 
 
 void LecteurImage::lireMetaDonnees() {
 
-        string chaine1;
-        fichier >> chaine1 ;                    /* On lit le premier champ qui correspond à au type de données*/
-        fichier >> tailleX ;                    /* On lit la taille horizontale du tableau */
-        fichier >> tailleY ;                    /* On lit la taille vertical du tableau */
+        string entete;
+        string dimension;
+
+
+
+        getline(fichier, entete);
+
+        cout << "entete = " << entete << endl;
+
+        getline(fichier, dimension);
+
+        cout << dimension << endl;
+
+        int separation = dimension.find(' ');
+
+        cout << "séparation = " << separation << endl;
+
+
+        std::string chaine_Taillex = dimension.substr(0, separation);
+        std::string chaine_Tailley = dimension.substr(separation + 1, dimension.size() -1);
+        cout << "\"" << chaine_Taillex  << "\" " << "\"" << chaine_Tailley  << "\""  << endl;
+        //DEBUG
+
+        tailleX = (unsigned int) atoi((char*)chaine_Taillex.c_str());
+        tailleY = (unsigned int) atoi((char*)chaine_Tailley.c_str());
+
+        cout << "taille de l'image :   " << tailleX << " x "<<tailleY << endl;
+        cout << "taille du malloc  :   "<< tailleX*tailleY *sizeof(Pixel) << " octets "<< endl;
 
 }

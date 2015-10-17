@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <string>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ class LecteurImage
     private:
         unsigned int tailleX;
         unsigned int tailleY;
-        Pixel **tabPixels;
+        Pixel *tabPixels;
         ifstream fichier;
 };
 

@@ -1,27 +1,31 @@
 # depslib dependency file v1.0
-1444249284 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
+1444768288 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
 	<iostream>
-
-1444556416 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\ensemble.cpp
-	"Ensemble.h"
-
-1444556113 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\ensemble.h
-	"Pixel.h"
-
-1444555100 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\pixel.h
-
-1444557497 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\lecteurimage.cpp
 	"LecteurImage.h"
 
-1444557515 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\lecteurimage.h
+1444765631 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\ensemble.cpp
+	"Ensemble.h"
+
+1444765631 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\ensemble.h
+	"Pixel.h"
+
+1444857104 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\pixel.h
+
+1444857124 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\lecteurimage.cpp
+	"LecteurImage.h"
+
+1444853219 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\lecteurimage.h
 	"Pixel.h"
 	<iostream>
 	<fstream>
 	<cstdlib>
+	<string>
 
-<<<<<<< HEAD
-1444557539 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
-=======
+1444557515 D
+
+1444856875 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
+	"Pixel.h"
+
 1444079129 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
 	<iostream>
 
@@ -43,6 +47,18 @@
 	<cstdlib>
 
 1444580431 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\pixel.cpp
->>>>>>> 83784e6153a1acfbcb440a6ee0089ef7157a3f79
+
+1444580431 84e6153a1acfbcb440a6ee0089ef7157a3f79
 	"Pixel.h"
+
+1444765906 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
+	"WriteFic.h"
+
+1444765631 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\writefic.h
+	<iostream>
+	<fstream>
+	<iostream>
+	<string.h>
+	"Pixel.h"
+	"Ensemble.h"
 

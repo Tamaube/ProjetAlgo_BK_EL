@@ -7,10 +7,12 @@ private:
         Pixel* _next;
         int _x;
         int _y;
+        bool pixelNoir;
 
     public:
         Pixel(int x, int y);
-        ~Pixel();
+        Pixel(int x, int y, bool noir);
+        //~Pixel();
 
         int getX() { return _x;}
         int getY() { return _y;}
