@@ -24,10 +24,21 @@
 
 1444580431 D
 
+<<<<<<< HEAD
 1445070719 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
 	"Pixel.h"
 
 1444766691 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
+=======
+1444557539 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
+	"Pixel.h"
+
+1445077256 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
+	<iostream>
+	"LecteurImage.h"
+	"testWriteFic.h"
+	"WriteFic.h"
+>>>>>>> 7cef2e57437115fd51b139953f6b46d7c78fbd24
 
 1444764970 6592fe0c7505dbbf513bf9bb1ba36122b266e
 	<iostream>
@@ -39,23 +50,29 @@
 1444584660 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\ensemble.h
 	"Pixel.h"
 
-1444588193 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\pixel.h
+1445074688 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\pixel.h
 
-1444765370 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\lecteurimage.cpp
+1445074688 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\lecteurimage.cpp
 	"LecteurImage.h"
 
-1444580431 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\lecteurimage.h
+1445074688 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\lecteurimage.h
 	"Pixel.h"
 	<iostream>
 	<fstream>
 	<cstdlib>
+	<string>
 
-1444580431 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\pixel.cpp
+1445074688 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\pixel.cpp
+	"Pixel.h"
 
 1444580431 84e6153a1acfbcb440a6ee0089ef7157a3f79
 	"Pixel.h"
 
+<<<<<<< HEAD
 1445069708 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
+=======
+1444765906 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
+>>>>>>> 7cef2e57437115fd51b139953f6b46d7c78fbd24
 	"WriteFic.h"
 
 1445069708 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\writefic.h
@@ -69,15 +86,20 @@
 
 1444765631 h"
 
+<<<<<<< HEAD
 1444850808 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\writefic.cpp
+=======
+1445078274 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\writefic.cpp
+>>>>>>> 7cef2e57437115fd51b139953f6b46d7c78fbd24
 	"WriteFic.h"
 
-1444850862 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\writefic.h
+1445077627 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\writefic.h
 	<iostream>
 	<fstream>
 	<string>
 	<cstdlib>
 	<string.h>
+	<ctime>
 	"Pixel.h"
 	"Ensemble.h"
 
@@ -88,6 +110,7 @@
 	"Ensemble.h"
 	"Pixel.h"
 	"WriteFic.h"
+<<<<<<< HEAD
 
 1445073646 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\test\testwritefic.cpp
 	"testWriteFic.h"
@@ -96,4 +119,6 @@
 	"Ensemble.h"
 	"Pixel.h"
 	"WriteFic.h"
+=======
+>>>>>>> 7cef2e57437115fd51b139953f6b46d7c78fbd24
 

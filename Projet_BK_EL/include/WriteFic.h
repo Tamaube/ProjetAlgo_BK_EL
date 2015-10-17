@@ -6,6 +6,7 @@
 #include <string>
 #include <cstdlib>
 #include <string.h>
+#include <ctime>
 #include "Pixel.h"
 #include "Ensemble.h"
 
@@ -18,13 +19,15 @@ private:
     int nbrLig;
 
 public:
+    WriteFic();
     WriteFic(int nbrLig, int nbrCol);
     ~WriteFic();
 
     void ajEnsembleTable(Ensemble **tabEnsemble, int tailleTab, char *tabColor[]);
     void writeThePPMFic();
 
-    void generate();
+    void generate(int n, int m);
+
 };
 
 #endif // WRITEFIC_H_INCLUDED

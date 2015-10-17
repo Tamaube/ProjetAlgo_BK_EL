@@ -21,6 +21,10 @@ WriteFic::WriteFic(int nbrLig, int nbrCol)
 
 }
 
+WriteFic::WriteFic()
+{
+}
+
 /*
     ecrit le fichier ppm
     utilise la matrice tab2D_color pour le contenu du fichier
@@ -76,6 +80,35 @@ void WriteFic::ajEnsembleTable(Ensemble **tabEnsemble, int tailleTab, char *tabC
             this->tab2D_color[(p->getX() *  this->nbrCol) + p->getY()] = tabColor[i];
             p = p->getNext();
         }
+    }
+
+}
+
+
+void WriteFic::generate (int n, int m)
+{
+    ofstream fic("img_generate.ppm", ios::out | ios::trunc);
+    if(fic)
+    {
+         //Debut du fichier
+        fic << "P1 " << endl << m << " " << n << endl;
+        fic << "255" << endl;
+        srand (time(0));
+        //Contenu du fichier
+        for(int i = 0; i < n; ++i)
+        {
+            for(int j=0; j < m; ++j){
+
+                int v = rand() %2;
+                fic << v << " ";
+
+            }
+            fic << endl;
+        }
+
+        fic.close();
+    } else {
+        cerr << "Erreur lors de la creation du fichier" << endl;
     }
 
 }
