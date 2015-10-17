@@ -17,11 +17,11 @@ class LecteurImage
         LecteurImage();
         ~LecteurImage();
         void lireMetaDonnees();
+        unsigned int tailleX;   //Nombre de pixel en horizontal
+        unsigned int tailleY;   //Nombre de pixel en vertical
+        Pixel *tabPixels;
     protected:
     private:
-        unsigned int tailleX;
-        unsigned int tailleY;
-        Pixel *tabPixels;
         ifstream fichier;
 };
 

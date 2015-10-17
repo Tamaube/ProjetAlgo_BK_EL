@@ -1,5 +1,5 @@
 #include "testWriteFic.h"
-
+/*
 void testEcriture()
 {
     cout << "testEcriture" << endl;
@@ -15,3 +15,4 @@ void testEcriture()
     wf->writeThePPMFic();
 
 }
+*/

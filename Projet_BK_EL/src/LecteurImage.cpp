@@ -5,7 +5,7 @@ LecteurImage::LecteurImage()
 {
 
 
-    ifstream fichier("vigne.pbm", ios::in);
+    ifstream fichier("test_1.pbm.txt", ios::in);
 
     if(fichier){
 
@@ -14,7 +14,7 @@ LecteurImage::LecteurImage()
 
         getline(fichier, entete);
 
-        cout << "entete = " << entete << endl;
+        cout << "Entete = " << entete << endl;
 
         getline(fichier, dimension);
 
@@ -40,13 +40,14 @@ LecteurImage::LecteurImage()
         while (getline(fichier, ligne)) {
             for (unsigned int i = 0; i<ligne.size(); i++) {
                 if (ligne[i] == '0') {
-                    tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX);
+                    tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX, false);
+                    nbCharLu++;
 
-                }else {
+                }else if(ligne[i] == '1') {
                     tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX, true);
+                    nbCharLu++;
                 }
             }
-            nbCharLu++;
         }
 
 
