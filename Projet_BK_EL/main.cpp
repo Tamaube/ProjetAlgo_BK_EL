@@ -42,7 +42,7 @@ void lire_tableau_pixel(LecteurImage* l){
     */
 }
 
-void test_LecteurImage(){
+void Lancer_LecteurImage(){
 
     LecteurImage* l = new LecteurImage("vigne.pbm");
     lire_tableau_pixel(l);
@@ -51,16 +51,24 @@ void test_LecteurImage(){
 }
 
 void Algorithme_Union(){
-
-
+    unsigned int num_pixel_courant;
+    Pixel* pixel_courant;
     for (unsigned int ligne = 0; ligne < Dimension_Y; ligne++) {
         for (unsigned int colonne = 0; colonne < Dimension_X; colonne++) {
-
-
-
-
-
-
+            num_pixel_courant = ligne*Dimension_X + colonne;
+            pixel_courant = TableauPixels + num_pixel_courant;
+            if (!(ligne==0)) {//si il y a un pixel au dessus
+                pixel_courant->propageCouleur(TableauPixels+ (ligne-1)*Dimension_X + colonne);
+            }
+            if (!(ligne==(Dimension_Y-1))) {//si il y a un pixel en dessous
+                pixel_courant->propageCouleur(TableauPixels+ (ligne+1)*Dimension_X + colonne);
+            }
+            if (!(colonne==0)) {//si il y a un pixel à gauche
+                pixel_courant->propageCouleur(TableauPixels+ ligne*Dimension_X + colonne-1);
+            }
+            if (!(colonne==(Dimension_X-1))) {//si il y a un pixel à droite
+                pixel_courant->propageCouleur(TableauPixels+ ligne*Dimension_X + colonne+1);
+            }
         }
     }
 
@@ -72,16 +80,19 @@ int main()
 {
     cout << "Alex est le mal dominant" << endl;
 
-    test_LecteurImage();
+    Lancer_LecteurImage();
+
+    Algorithme_Union();
 
 
 
 
 
+    WriteFic *wf = new WriteFic(Dimension_Y, Dimension_X);
 
 
-    WriteFic *wf = new WriteFic();
-    wf->generate(5,5);
+    //wf->generate(5,5);
+
     return 0;
 }
 

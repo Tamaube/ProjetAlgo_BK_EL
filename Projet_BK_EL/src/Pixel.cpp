@@ -21,10 +21,13 @@ bool Pixel::dans_Meme_Ensemble(Pixel* autre_Pixel){
 
 void Pixel::propageCouleur(Pixel* pixel_Adjacent){
 
-    if(!this->pixelNoir && !pixel_Adjacent->pixelNoir){
+    if(!this->pixelNoir && !pixel_Adjacent->pixelNoir){ // On vérifie que nous n'avons pas à faire avec un pixel noir (oui, il y a discrimination...)
+        if (!dans_Meme_Ensemble(pixel_Adjacent)){
+            Ensemble* monEnsemble = this->getEnsemble();
+            Ensemble* autreEnsemble = pixel_Adjacent->getEnsemble();
 
-
-
+            monEnsemble->addEnsemble_inTail(autreEnsemble);
+        }
     }
 
 
