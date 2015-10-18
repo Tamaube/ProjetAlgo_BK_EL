@@ -41,7 +41,23 @@ LecteurImage::LecteurImage(string nomImage)
             for (unsigned int i = 0; i<ligne.size(); i++) {
                 if (ligne[i] == '0') {
                     tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX, false);
+
+                    /////Debug
+
+                    cout <<  " Creation pixel : ";
+                    cout << " (" << tabPixels[nbCharLu].getX() << "." <<  tabPixels[nbCharLu].getY() << ")  ptr : " << tabPixels[nbCharLu].getNext() <<  endl;
+                    if ((tabPixels[nbCharLu].getNext())==nullptr) {
+                        cout << "\t\tOK" << endl;
+                    }
+
+
+
+
+                    /////Debug
+
+
                     nbCharLu++;
+
 
                 }else if(ligne[i] == '1') {
                     tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX, true);

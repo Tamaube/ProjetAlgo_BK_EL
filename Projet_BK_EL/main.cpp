@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Pixel* TableauPixels;
+Pixel* tableauPixels;
 unsigned int Dimension_X;
 unsigned int Dimension_Y;
 
@@ -19,7 +19,7 @@ void lire_tableau_pixel(LecteurImage* l){
 
     cout << "== Affichage du tableau de pixel " << endl;
 
-    TableauPixels = l->tabPixels;
+    tableauPixels = l->tabPixels;
 
     Dimension_X = l->tailleX;  //Nombre de pixel en horizontal
     Dimension_Y = l->tailleY;  //Nombre de pixel en vertical
@@ -27,11 +27,14 @@ void lire_tableau_pixel(LecteurImage* l){
     cout << "Dimension du tableau : " << Dimension_X << " par " << Dimension_Y << endl<< endl;
 
 
+
+
+
 /*  //Affichage du contenu du tableau
     for (unsigned int ligne = 0; ligne < Dimension_Y; ligne++){
         cout << ligne << "\t(";
         for (unsigned int col = 0; col < Dimension_X; col++) {
-            if (TableauPixels[col + ligne*Dimension_X].pixelNoir) {
+            if (tableauPixels[col + ligne*Dimension_X].pixelNoir) {
                 cout <<  "1 ";
             }else {
                 cout <<  "0 ";
@@ -44,7 +47,7 @@ void lire_tableau_pixel(LecteurImage* l){
 
 void Lancer_LecteurImage(){
 
-    LecteurImage* l = new LecteurImage("vigne.pbm");
+    LecteurImage* l = new LecteurImage("test_1.pbm.txt");
     lire_tableau_pixel(l);
     l = nullptr;
 
@@ -56,18 +59,18 @@ void Algorithme_Union(){
     for (unsigned int ligne = 0; ligne < Dimension_Y; ligne++) {
         for (unsigned int colonne = 0; colonne < Dimension_X; colonne++) {
             num_pixel_courant = ligne*Dimension_X + colonne;
-            pixel_courant = TableauPixels + num_pixel_courant;
+            pixel_courant = tableauPixels + num_pixel_courant;
             if (!(ligne==0)) {//si il y a un pixel au dessus
-                pixel_courant->propageCouleur(TableauPixels+ (ligne-1)*Dimension_X + colonne);
+                pixel_courant->propageCouleur(tableauPixels+ (ligne-1)*Dimension_X + colonne);
             }
             if (!(ligne==(Dimension_Y-1))) {//si il y a un pixel en dessous
-                pixel_courant->propageCouleur(TableauPixels+ (ligne+1)*Dimension_X + colonne);
+                pixel_courant->propageCouleur(tableauPixels+ (ligne+1)*Dimension_X + colonne);
             }
             if (!(colonne==0)) {//si il y a un pixel à gauche
-                pixel_courant->propageCouleur(TableauPixels+ ligne*Dimension_X + colonne-1);
+                pixel_courant->propageCouleur(tableauPixels+ ligne*Dimension_X + colonne-1);
             }
             if (!(colonne==(Dimension_X-1))) {//si il y a un pixel à droite
-                pixel_courant->propageCouleur(TableauPixels+ ligne*Dimension_X + colonne+1);
+                pixel_courant->propageCouleur(tableauPixels+ ligne*Dimension_X + colonne+1);
             }
         }
     }
@@ -78,15 +81,45 @@ void Algorithme_Union(){
 
 int main()
 {
-    cout << "Alex est le mal dominant" << endl;
+    cout << "Alex est le mal dominant : " << sizeof(int) << endl;
 
     Lancer_LecteurImage();
+
+
 
     Algorithme_Union();
 
     WriteFic *wf = new WriteFic(Dimension_Y, Dimension_X);
 
-    wf->ajEnsembleTable(TableauPixels, Dimension_X*Dimension_Y);
+
+    ///////////Debug
+
+    cout << endl << " Pixel du premier ensemble : " << endl;
+
+    for(int i = 0; i < Dimension_X*Dimension_Y; i++) {
+        if (tableauPixels[i].getNext()==nullptr && !tableauPixels[i].pixelNoir)
+            cout << " e";
+    }
+
+
+
+
+    Ensemble*  ens = tableauPixels[1].getEnsemble();
+
+    cout << "Ensemble :   taille = " << ens->getSize() << "  tete = " << ens->getHead() ;
+
+    Pixel* pixelCourant = ens->getHead();
+
+    cout << " (" << pixelCourant->getX() << ", " << pixelCourant->getY() << ")";
+    while (pixelCourant->getNext() != nullptr) {
+        pixelCourant = pixelCourant->getNext();
+        cout << " (" << pixelCourant->getX() << ", " << pixelCourant->getY() << ")";
+    }
+    ///////////Debug
+
+    wf->ajEnsembleTable(tableauPixels, Dimension_X*Dimension_Y);
+
+
 
     wf->writeThePPMFic();
 

@@ -6,12 +6,20 @@ Pixel::Pixel (int x, int y){
     this->_y = y;
     this->pixelNoir = false;
     this->_ensemble = new Ensemble(this);
+    this->setNext(nullptr);
+    this->setHead(this);
 }
 Pixel::Pixel (int x, int y, bool noir){
     this->_x = x;
     this->_y = y;
     this->pixelNoir = noir;
-    this->_ensemble = nullptr;
+    this->setNext(nullptr);
+    this->setHead(nullptr);
+    if (noir)
+        this->_ensemble = nullptr;
+    else
+        this->_ensemble = new Ensemble(this);
+
 }
 bool Pixel::dans_Meme_Ensemble(Pixel* autre_Pixel){
 

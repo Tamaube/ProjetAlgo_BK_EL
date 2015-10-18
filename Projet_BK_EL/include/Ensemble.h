@@ -2,6 +2,9 @@
 #define ENSEMBLE_H_INCLUDED
 
 #include "Pixel.h"
+#include <iostream>
+
+using namespace std;
 
 //Ensemble de pixel
 class Pixel;
