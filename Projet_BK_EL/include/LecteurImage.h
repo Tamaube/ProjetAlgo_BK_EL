@@ -19,7 +19,7 @@ class LecteurImage
         void lireMetaDonnees();
         unsigned int tailleX;   //Nombre de pixel en horizontal
         unsigned int tailleY;   //Nombre de pixel en vertical
-        Pixel *tabPixels;
+        Pixel** tabPixels;
     protected:
     private:
         ifstream fichier;

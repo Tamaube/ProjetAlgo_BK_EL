@@ -29,7 +29,7 @@ public:
     char* getRandomColor();
     char* getCouleurPixel(void* ptr);
 
-    void ajEnsembleTable(Pixel* tableauPixels, unsigned int tailleTab );
+    void ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab );
     void writeThePPMFic();
 
     void generate(int n, int m);

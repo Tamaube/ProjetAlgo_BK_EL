@@ -33,34 +33,28 @@ LecteurImage::LecteurImage(string nomImage)
         cout << "taille du malloc  :   "<< tailleX*tailleY *sizeof(Pixel) << " octets "<< endl;
 
 
-        tabPixels = (Pixel*) malloc(sizeof(Pixel) * tailleX * tailleY );
+        tabPixels = (Pixel**) malloc(sizeof(Pixel*) * tailleX * tailleY );
 
         string ligne;
         unsigned int nbCharLu = 0;
         while (getline(fichier, ligne)) {
             for (unsigned int i = 0; i<ligne.size(); i++) {
                 if (ligne[i] == '0') {
-                    tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX, false);
-
-                    /////Debug
-
-                    cout <<  " Creation pixel : ";
-                    cout << " (" << tabPixels[nbCharLu].getX() << "." <<  tabPixels[nbCharLu].getY() << ")  ptr : " << tabPixels[nbCharLu].getNext() <<  endl;
-                    if ((tabPixels[nbCharLu].getNext())==nullptr) {
-                        cout << "\t\tOK" << endl;
-                    }
+                    tabPixels[nbCharLu] = new Pixel(nbCharLu%tailleX, nbCharLu/tailleX, false);
 
 
+                    //Debug
+
+                    cout << " # Creation du pixel \t Pixel : ("<< tabPixels[nbCharLu]->getX()<< "." << tabPixels[nbCharLu]->getY() << ")";
+                    cout << " = Ensemble : "<< "("<< tabPixels[nbCharLu]->getEnsemble()->getHead()->getX()<< "." << tabPixels[nbCharLu]->getEnsemble()->getHead()->getY() << ")" << endl;
 
 
-                    /////Debug
-
-
+                    //Debug
                     nbCharLu++;
 
 
                 }else if(ligne[i] == '1') {
-                    tabPixels[nbCharLu] = Pixel(nbCharLu%tailleX, nbCharLu/tailleX, true);
+                    tabPixels[nbCharLu] = new Pixel(nbCharLu%tailleX, nbCharLu/tailleX, true);
                     nbCharLu++;
                 }
             }
@@ -72,6 +66,11 @@ LecteurImage::LecteurImage(string nomImage)
 
 
     fichier.close();
+
+    for (unsigned int i = 0; i< tailleX*tailleY; i++) {
+        cout << i << "# Fin Lecteur \t Pixel : ("<< tabPixels[i]->getX()<< "." << tabPixels[i]->getY() << ")";
+        cout << " = Ensemble : "<< "("<< tabPixels[i]->getEnsemble()->getHead()->getX()<< "." << tabPixels[i]->getEnsemble()->getHead()->getY() << ")" << endl;
+    }
 }
 
 LecteurImage::~LecteurImage()

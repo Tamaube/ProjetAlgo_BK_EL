@@ -126,7 +126,7 @@ void WriteFic::writeThePPMFic()
     tailleTab: taille du tableau tabEnsemble et du tabColor
     tabColor: tableau de couleur pour chaque ensemble
 */
-void WriteFic::ajEnsembleTable(Pixel* tableauPixels, unsigned int tailleTab )
+void WriteFic::ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab )
 {
 
     cout << endl << "== Debut de la fonction ajEnsembleTable" << endl;
@@ -135,21 +135,21 @@ void WriteFic::ajEnsembleTable(Pixel* tableauPixels, unsigned int tailleTab )
 
     for (int i = 0; i < 10; i++){
 
-        cout << " coordonees :  \t" << tableauPixels[i].getX() << "." << tableauPixels[i].getY() << endl;
-        if (tableauPixels[i].pixelNoir) {
+        cout << " coordonees :  \t" << tableauPixels[i]->getX() << "." << tableauPixels[i]->getY() << endl;
+        if (tableauPixels[i]->pixelNoir) {
             cout << " pixel noir. " << endl;
         } else {
-            cout << " pointeur tete :\t" << (unsigned long int) tableauPixels[i].getHead() << endl;
+            cout << " pointeur tete :\t" << (unsigned long int) tableauPixels[i]->getHead() << endl;
         }
 
     }
 
     cout << endl << " Pixel du premier ensemble : " << endl;
     int j = 0;
-    while (tableauPixels[j].pixelNoir)
+    while (tableauPixels[j]->pixelNoir)
         j++;
 
-    Ensemble * ens = tableauPixels[j].getEnsemble();
+    Ensemble * ens = tableauPixels[j]->getEnsemble();
 
     cout << "Ensemble :   taille = " << ens->getSize() << "  tete = " << ens->getHead() ;
 
@@ -166,9 +166,9 @@ void WriteFic::ajEnsembleTable(Pixel* tableauPixels, unsigned int tailleTab )
     {
 
         //cout << getCouleurEnsemble(tableauPixels[i].getEnsemble()) << " ";
-        if (!tableauPixels[i].pixelNoir){
-            cout << (unsigned long int) tableauPixels[i].getHead();
-            tab2D_color[i] = getCouleurPixel(tableauPixels[i].getHead());
+        if (!tableauPixels[i]->pixelNoir){
+            cout << (unsigned long int) tableauPixels[i]->getHead();
+            tab2D_color[i] = getCouleurPixel(tableauPixels[i]->getHead());
 
         }
 
