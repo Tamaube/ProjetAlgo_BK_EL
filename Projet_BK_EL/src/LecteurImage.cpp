@@ -1,11 +1,11 @@
 #include "LecteurImage.h"
 
 
-LecteurImage::LecteurImage()
+LecteurImage::LecteurImage(string nomImage)
 {
 
 
-    ifstream fichier("test_1.pbm.txt", ios::in);
+    ifstream fichier(nomImage, ios::in);
 
     if(fichier){
 

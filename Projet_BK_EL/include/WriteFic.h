@@ -9,6 +9,7 @@
 #include <ctime>
 #include "Pixel.h"
 #include "Ensemble.h"
+#include <vector>
 
 using namespace std;
 
@@ -17,13 +18,18 @@ private:
     char** tab2D_color;
     int nbrCol;
     int nbrLig;
+    std::vector<Ensemble *> listEnsemble;
+    std::vector<char *> listColor;
+    std::vector<char *>::iterator itorColor;
 
 public:
     WriteFic();
     WriteFic(int nbrLig, int nbrCol);
     ~WriteFic();
+    char* getRandomColor();
+    char* getCouleurEnsemble(Ensemble* e);
 
-    void ajEnsembleTable(Ensemble **tabEnsemble, int tailleTab, char *tabColor[]);
+    void ajEnsembleTable(Pixel* tableauPixels, unsigned int tailleTab );
     void writeThePPMFic();
 
     void generate(int n, int m);
