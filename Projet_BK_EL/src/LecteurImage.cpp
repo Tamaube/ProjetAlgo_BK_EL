@@ -51,8 +51,6 @@ LecteurImage::LecteurImage(string nomImage)
 
                     //Debug
                     nbCharLu++;
-
-
                 }else if(ligne[i] == '1') {
                     tabPixels[nbCharLu] = new Pixel(nbCharLu%tailleX, nbCharLu/tailleX, true);
                     nbCharLu++;
@@ -68,8 +66,10 @@ LecteurImage::LecteurImage(string nomImage)
     fichier.close();
 
     for (unsigned int i = 0; i< tailleX*tailleY; i++) {
-        cout << i << "# Fin Lecteur \t Pixel : ("<< tabPixels[i]->getX()<< "." << tabPixels[i]->getY() << ")";
-        cout << " = Ensemble : "<< "("<< tabPixels[i]->getEnsemble()->getHead()->getX()<< "." << tabPixels[i]->getEnsemble()->getHead()->getY() << ")" << endl;
+        if (!tabPixels[i]->pixelNoir){
+            cout << i << "# Fin Lecteur \t Pixel : ("<< tabPixels[i]->getX()<< "." << tabPixels[i]->getY() << ")";
+            cout << " = Ensemble : "<< "("<< tabPixels[i]->getEnsemble()->getHead()->getX()<< "." << tabPixels[i]->getEnsemble()->getHead()->getY() << ")" << endl;
+        }
     }
 }
 

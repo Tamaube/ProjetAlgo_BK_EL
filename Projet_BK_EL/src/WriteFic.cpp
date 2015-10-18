@@ -155,10 +155,10 @@ void WriteFic::ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab )
 
     Pixel* pixelCourant = ens->getHead();
 
-    while (pixelCourant != nullptr) {
-        cout << " (" << pixelCourant->getX() << ", " << pixelCourant->getY() << ")";
-        pixelCourant = pixelCourant->getNext();
-    }
+    //while (pixelCourant != nullptr) {
+    //    cout << " (" << pixelCourant->getX() << ", " << pixelCourant->getY() << ")";
+    //    pixelCourant = pixelCourant->getNext();
+    //}
 
 
     tab2D_color = (char**) malloc(sizeof(char*)*tailleTab);
