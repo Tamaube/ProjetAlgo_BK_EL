@@ -21,18 +21,10 @@ void Ensemble::addPixel(Pixel* p) {
 */
 void Ensemble::addEnsemble_inTail(Ensemble* e){
 
-    //Debug
-    cout << endl << "== Fonction Ensemble::addEnsemble_inTail" << endl;
-    cout << "Representant " << this->getHead()->getX() << "." << this->getHead()->getY() << endl;
-    cout << "Fusion avec  " << e->getHead()->getX() << "." << e->getHead()->getY() << endl;
-
-
-    //Debug
-
 
     Pixel* p = e->getHead();
 
-    for(int i = 0; i < e->getSize(); ++i)
+    for(int i = 0; (i < e->getSize() && p!=nullptr); ++i)
     {
         p->setHead(this->_head);
         p = p->getNext();

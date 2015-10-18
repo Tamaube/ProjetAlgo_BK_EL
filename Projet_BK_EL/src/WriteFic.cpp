@@ -26,7 +26,7 @@ char* WriteFic::getRandomColor() {
     result[9] = '0' + (c3/10)%10;
     result[10] = '0' + c3%10;
 
-    cout << result << " ";
+
 
     char * cstr = new char [result.length()+1];
     std::strcpy (cstr, result.c_str());
@@ -48,18 +48,19 @@ char* WriteFic::getCouleurPixel(void* ptr) {
     }
     if (!trouve) {
 
-        cout << "New " ;
         listPtrEnsemble.push_back((unsigned long int) ptr);
         listColor.push_back(getRandomColor());
     }
 
-    cout << i << " " ;
     return listColor[i];
 
 }
 
 WriteFic::WriteFic(int nbrLig, int nbrCol)
 {
+    srand (time(0));
+    itorColor = listColor.begin();
+
     this->nbrCol = nbrCol;
     this->nbrLig = nbrLig;
 
@@ -80,8 +81,6 @@ WriteFic::WriteFic(int nbrLig, int nbrCol)
 
 WriteFic::WriteFic()
 {
-    srand (time(0));
-    itorColor = listColor.begin();
 }
 
 /*
@@ -91,6 +90,9 @@ WriteFic::WriteFic()
 void WriteFic::writeThePPMFic()
 {
     ofstream fic("result.ppm", ios::out | ios::trunc);
+
+    cout << "WriteThePPM" << endl << this->tab2D_color[0] << endl ;
+
     if(fic)
     {
 
@@ -103,12 +105,12 @@ void WriteFic::writeThePPMFic()
         {
             for(int j = 0; j < this->nbrCol; j++)
             {
-                if (strcmp(this->tab2D_color[i * this->nbrCol + j], "0 0 0"))
-                {
+                //if (strcmp(this->tab2D_color[i * this->nbrCol + j], "0 0 0"))
+                //{
                     fic <<  this->tab2D_color[i * this->nbrCol + j] << " ";
-                } else {
-                    cerr << "Erreur: le pixel " << i << " " << j << " = " <<" a deja ete colore" << endl;
-                }
+                //} else {
+                //    cerr << "Erreur: le pixel " << i << " " << j << " = " <<" a deja ete colore" << endl;
+                //}
             }
             fic << endl;
         }
@@ -129,31 +131,7 @@ void WriteFic::writeThePPMFic()
 void WriteFic::ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab )
 {
 
-    cout << endl << "== Debut de la fonction ajEnsembleTable" << endl;
 
-    cout << endl << "Test du tableauPixels : " << endl;
-
-    for (int i = 0; i < 10; i++){
-
-        cout << " coordonees :  \t" << tableauPixels[i]->getX() << "." << tableauPixels[i]->getY() << endl;
-        if (tableauPixels[i]->pixelNoir) {
-            cout << " pixel noir. " << endl;
-        } else {
-            cout << " pointeur tete :\t" << (unsigned long int) tableauPixels[i]->getHead() << endl;
-        }
-
-    }
-
-    cout << endl << " Pixel du premier ensemble : " << endl;
-    int j = 0;
-    while (tableauPixels[j]->pixelNoir)
-        j++;
-
-    Ensemble * ens = tableauPixels[j]->getEnsemble();
-
-    cout << "Ensemble :   taille = " << ens->getSize() << "  tete = " << ens->getHead() ;
-
-    Pixel* pixelCourant = ens->getHead();
 
     //while (pixelCourant != nullptr) {
     //    cout << " (" << pixelCourant->getX() << ", " << pixelCourant->getY() << ")";
@@ -161,13 +139,13 @@ void WriteFic::ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab )
     //}
 
 
-    tab2D_color = (char**) malloc(sizeof(char*)*tailleTab);
+    //tab2D_color = (char**) malloc(sizeof(char*)*tailleTab);
+
     for(unsigned int i = 0; i < tailleTab; i++)
     {
 
         //cout << getCouleurEnsemble(tableauPixels[i].getEnsemble()) << " ";
         if (!tableauPixels[i]->pixelNoir){
-            cout << (unsigned long int) tableauPixels[i]->getHead();
             tab2D_color[i] = getCouleurPixel(tableauPixels[i]->getHead());
 
         }

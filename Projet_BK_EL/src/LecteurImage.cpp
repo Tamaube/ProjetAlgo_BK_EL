@@ -14,7 +14,6 @@ LecteurImage::LecteurImage(string nomImage)
 
         getline(fichier, entete);
 
-        cout << "Entete = " << entete << endl;
 
         getline(fichier, dimension);
 
@@ -42,14 +41,6 @@ LecteurImage::LecteurImage(string nomImage)
                 if (ligne[i] == '0') {
                     tabPixels[nbCharLu] = new Pixel(nbCharLu%tailleX, nbCharLu/tailleX, false);
 
-
-                    //Debug
-
-                    cout << " # Creation du pixel \t Pixel : ("<< tabPixels[nbCharLu]->getX()<< "." << tabPixels[nbCharLu]->getY() << ")";
-                    cout << " = Ensemble : "<< "("<< tabPixels[nbCharLu]->getEnsemble()->getHead()->getX()<< "." << tabPixels[nbCharLu]->getEnsemble()->getHead()->getY() << ")" << endl;
-
-
-                    //Debug
                     nbCharLu++;
                 }else if(ligne[i] == '1') {
                     tabPixels[nbCharLu] = new Pixel(nbCharLu%tailleX, nbCharLu/tailleX, true);
@@ -64,13 +55,6 @@ LecteurImage::LecteurImage(string nomImage)
 
 
     fichier.close();
-
-    for (unsigned int i = 0; i< tailleX*tailleY; i++) {
-        if (!tabPixels[i]->pixelNoir){
-            cout << i << "# Fin Lecteur \t Pixel : ("<< tabPixels[i]->getX()<< "." << tabPixels[i]->getY() << ")";
-            cout << " = Ensemble : "<< "("<< tabPixels[i]->getEnsemble()->getHead()->getX()<< "." << tabPixels[i]->getEnsemble()->getHead()->getY() << ")" << endl;
-        }
-    }
 }
 
 LecteurImage::~LecteurImage()

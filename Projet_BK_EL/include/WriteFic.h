@@ -15,7 +15,6 @@ using namespace std;
 
 class WriteFic {
 private:
-    char** tab2D_color;
     int nbrCol;
     int nbrLig;
     std::vector<unsigned long int> listPtrEnsemble;
@@ -23,6 +22,7 @@ private:
     std::vector<char *>::iterator itorColor;
 
 public:
+    char** tab2D_color;
     WriteFic();
     WriteFic(int nbrLig, int nbrCol);
     ~WriteFic();

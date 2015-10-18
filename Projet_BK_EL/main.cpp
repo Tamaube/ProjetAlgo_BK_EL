@@ -47,7 +47,7 @@ void lire_tableau_pixel(LecteurImage* l){
 
 void Lancer_LecteurImage(){
 
-    LecteurImage* l = new LecteurImage("test_1.pbm.txt");
+    LecteurImage* l = new LecteurImage("test.pbm.txt");
     lire_tableau_pixel(l);
     l = nullptr;
 
@@ -58,6 +58,10 @@ void Algorithme_Union(){
     Pixel* pixel_courant;
     for (unsigned int ligne = 0; ligne < Dimension_Y; ligne++) {
         for (unsigned int colonne = 0; colonne < Dimension_X; colonne++) {
+
+            if (ligne == 2 && colonne == 0)
+                cout << endl;
+
             num_pixel_courant = ligne*Dimension_X + colonne;
             pixel_courant = tableauPixels[num_pixel_courant];
             if (!(ligne==0)) {//si il y a un pixel au dessus
@@ -65,9 +69,6 @@ void Algorithme_Union(){
             }
             if (!(ligne==(Dimension_Y-1))) {//si il y a un pixel en dessous
                 pixel_courant->propageCouleur(tableauPixels[(ligne+1)*Dimension_X + colonne]);
-            }
-            if (!(colonne==0)) {//si il y a un pixel à gauche
-                pixel_courant->propageCouleur(tableauPixels[ligne*Dimension_X + colonne-1]);
             }
             if (!(colonne==(Dimension_X-1))) {//si il y a un pixel à droite
                 pixel_courant->propageCouleur(tableauPixels[ligne*Dimension_X + colonne+1]);
@@ -85,22 +86,23 @@ int main()
 
     Lancer_LecteurImage();
 
+    cout << "Fin de la lecture de l'image." << endl<< endl;
 
-
-
-
-
-    ///////////Debug
-    cout << " # Main apres Lecteur \t Pixel : ("<< tableauPixels[1]->getX()<< "." << tableauPixels[1]->getY() << ")";
-    cout << " = Ensemble : "<< "("<< tableauPixels[1]->getEnsemble()->getHead()->getX()<< "." << tableauPixels[1]->getEnsemble()->getHead()->getY() << ")" << endl;
-
-    ///////////Debug
+    cout << " Debut de l'algorithme d'union." << endl;
 
     Algorithme_Union();
 
+    cout << "Fin de l'algorithme d'union." << endl<< endl;
+
+    cout << " Construction de l'instance WriteFic..." << endl;
+
     WriteFic *wf = new WriteFic(Dimension_Y, Dimension_X);
 
+    cout << " Debut de ajEnsembleTable." << endl;
+
     wf->ajEnsembleTable(tableauPixels, Dimension_X*Dimension_Y);
+
+    cout << "Fin de ajEnsembleTable." << endl<< endl;
 
 
 
