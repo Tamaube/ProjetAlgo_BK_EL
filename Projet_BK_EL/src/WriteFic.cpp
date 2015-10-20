@@ -40,7 +40,8 @@ char* WriteFic::getCouleurPixel(void* ptr) {
     std::vector<unsigned long int>::iterator itor;
     int i = 0;
     for (itor = listPtrEnsemble.begin (); itor != listPtrEnsemble.end (); ++itor) {
-        if (*itor == (unsigned long int) ptr) {
+            unsigned long int current_ptr = listPtrEnsemble[i];
+        if (listPtrEnsemble[i] == (unsigned long int) ptr) {
             trouve = true;
         }else if (!trouve) {
             i++;
@@ -50,7 +51,12 @@ char* WriteFic::getCouleurPixel(void* ptr) {
 
         listPtrEnsemble.push_back((unsigned long int) ptr);
         listColor.push_back(getRandomColor());
+
+        unsigned long int valeur_ptr = (unsigned long int) ptr;
+        unsigned long int valeur_caseTab = (unsigned long int) listPtrEnsemble[i];
+
     }
+
 
     return listColor[i];
 
@@ -107,17 +113,20 @@ void WriteFic::writeThePPMFic()
             {
                 //if (strcmp(this->tab2D_color[i * this->nbrCol + j], "0 0 0"))
                 //{
+
+                    //cout << this->tab2D_color[i * this->nbrCol + j] << " ";
                     fic <<  this->tab2D_color[i * this->nbrCol + j] << " ";
                 //} else {
                 //    cerr << "Erreur: le pixel " << i << " " << j << " = " <<" a deja ete colore" << endl;
                 //}
             }
+            //cout << endl;
             fic << endl;
         }
 
         fic.close();
     } else {
-        cerr << "Erreur lors de la creation du fichier" << endl;
+        cerr << "Fonction writeThePPMFic : Erreur lors de la creation du fichier" << endl;
     }
 
 }
@@ -146,6 +155,8 @@ void WriteFic::ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab )
 
         //cout << getCouleurEnsemble(tableauPixels[i].getEnsemble()) << " ";
         if (!tableauPixels[i]->pixelNoir){
+
+
             tab2D_color[i] = getCouleurPixel(tableauPixels[i]->getHead());
 
         }
@@ -161,9 +172,7 @@ void WriteFic::ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab )
     }
 
     cout << endl <<"Nombre d'Ensemble trouvé : " << listPtrEnsemble.size() << endl;
-    cout << "Les différentes couleurs utilise : " << endl;
-    for (int i = 0; i < listColor.size(); i++)
-        cout << listColor[i] << "; ";
+
 
 }
 
@@ -191,7 +200,7 @@ void WriteFic::generate (int n, int m)
 
         fic.close();
     } else {
-        cerr << "Erreur lors de la creation du fichier" << endl;
+        cerr << "Fonction generate : Erreur lors de la creation du fichier" << endl;
     }
 
 }

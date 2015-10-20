@@ -47,7 +47,7 @@ void lire_tableau_pixel(LecteurImage* l){
 
 void Lancer_LecteurImage(){
 
-    LecteurImage* l = new LecteurImage("test.pbm.txt");
+    LecteurImage* l = new LecteurImage("ImagesTests/vigne.pbm");
     lire_tableau_pixel(l);
     l = nullptr;
 
@@ -58,10 +58,6 @@ void Algorithme_Union(){
     Pixel* pixel_courant;
     for (unsigned int ligne = 0; ligne < Dimension_Y; ligne++) {
         for (unsigned int colonne = 0; colonne < Dimension_X; colonne++) {
-
-            if (ligne == 2 && colonne == 0)
-                cout << endl;
-
             num_pixel_courant = ligne*Dimension_X + colonne;
             pixel_courant = tableauPixels[num_pixel_courant];
             if (!(ligne==0)) {//si il y a un pixel au dessus
@@ -96,9 +92,11 @@ int main()
 
     cout << " Construction de l'instance WriteFic..." << endl;
 
+
     WriteFic *wf = new WriteFic(Dimension_Y, Dimension_X);
 
     cout << " Debut de ajEnsembleTable." << endl;
+
 
     wf->ajEnsembleTable(tableauPixels, Dimension_X*Dimension_Y);
 
@@ -108,8 +106,6 @@ int main()
 
     wf->writeThePPMFic();
 
-
-    //wf->generate(5,5);
 
     return 0;
 }

@@ -25,7 +25,7 @@ private:
         int getY() { return _y;}
 
 
-        Pixel* getHead() {return _head;}//Recuperer le representant dun ensemble, findSet
+        Pixel* getHead();//Recuperer le representant dun ensemble, findSet
         Pixel* getNext() {return _next;}
         Ensemble* getEnsemble() {return _ensemble;}
 

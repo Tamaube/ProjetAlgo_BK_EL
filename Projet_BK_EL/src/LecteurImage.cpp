@@ -51,7 +51,8 @@ LecteurImage::LecteurImage(string nomImage)
 
 
     } else
-        cerr << "Impossible d'ouvrir le fichier !" << endl;
+        cerr << "Fonction LecteurImage : Impossible d'ouvrir le fichier " << nomImage << " !" << endl;
+
 
 
     fichier.close();
