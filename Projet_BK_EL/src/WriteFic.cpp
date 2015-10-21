@@ -40,7 +40,6 @@ char* WriteFic::getCouleurPixel(void* ptr) {
     std::vector<unsigned long int>::iterator itor;
     int i = 0;
     for (itor = listPtrEnsemble.begin (); itor != listPtrEnsemble.end (); ++itor) {
-            unsigned long int current_ptr = listPtrEnsemble[i];
         if (listPtrEnsemble[i] == (unsigned long int) ptr) {
             trouve = true;
         }else if (!trouve) {
@@ -51,10 +50,6 @@ char* WriteFic::getCouleurPixel(void* ptr) {
 
         listPtrEnsemble.push_back((unsigned long int) ptr);
         listColor.push_back(getRandomColor());
-
-        unsigned long int valeur_ptr = (unsigned long int) ptr;
-        unsigned long int valeur_caseTab = (unsigned long int) listPtrEnsemble[i];
-
     }
 
 

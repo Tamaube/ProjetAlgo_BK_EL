@@ -28,12 +28,7 @@ void Ensemble::addEnsemble_inTail(Ensemble* e){
 
     while (p)
     {
-        //Debug
-        unsigned int X_Moi = this->getHead()->getX();
-        unsigned int Y_Moi = this->getHead()->getY();
-        unsigned int X_Lui = p->getX();
-        unsigned int Y_Lui = p->getY();
-        //Debug
+
 
         p->setHead(this->_head);
         p->setEnsemble(this);
@@ -46,22 +41,6 @@ void Ensemble::addEnsemble_inTail(Ensemble* e){
     this->_tail = e->getTail();
     //free(e); //on détruit l'autre ensemble qui ne contient plus aucun pixel.
 
-    //Debug
-    Ensemble* Moi_Ensemble = this;
-    Pixel* Moi_Representant = this->getHead();
-    unsigned int Moi_Representant_X = this->getHead()->getX();
-    unsigned int Moi_Representant_Y = this->getHead()->getY();
-
-
-    Ensemble* AutrePixel_Ensemble = AutrePixel->getEnsemble();
-    unsigned int AutrePixel_Representant_X = AutrePixel->getX();
-    unsigned int AutrePixel_Representant_Y = AutrePixel->getY();
-
-
-
-
-
-    //Debug
 
 
 

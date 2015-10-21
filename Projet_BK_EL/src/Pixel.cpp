@@ -34,10 +34,6 @@ bool Pixel::dans_Meme_Ensemble(Pixel* autre_Pixel){
     Pixel* Son_representant = autre_Pixel->getEnsemble()->getHead();
 
 
-    unsigned int X_Moi = Mon_representant ->getX();
-    unsigned int Y_Moi = Mon_representant ->getY();
-    unsigned int X_Lui = Son_representant ->getX();
-    unsigned int Y_Lui = Son_representant ->getY();
 
 
 
@@ -55,32 +51,14 @@ void Pixel::propageCouleur(Pixel* pixel_Adjacent){
         bool meme_ensemble = dans_Meme_Ensemble(pixel_Adjacent);
         if (!meme_ensemble ){
 
-            //Debug
-            unsigned int X_Moi = this->getX();
-            unsigned int Y_Moi = this->getY();
-            unsigned int X_Lui = pixel_Adjacent->getX();
-            unsigned int Y_Lui = pixel_Adjacent->getY();
-            //Debug
+
 
             Ensemble* monEnsemble = this->getEnsemble();
             Ensemble* autreEnsemble = pixel_Adjacent->getEnsemble();
 
             monEnsemble->addEnsemble_inTail(autreEnsemble);
 
-            //Debug
-            X_Moi = this->getX();
-            Y_Moi = this->getY();
-            X_Lui = pixel_Adjacent->getX();
-            Y_Lui = pixel_Adjacent->getY();
 
-            Pixel* Representant_Moi = this->getHead();
-            Pixel* Representant_Lui = pixel_Adjacent->getHead();
-
-            bool a;
-
-
-
-            //Debug
         }
     }
 
