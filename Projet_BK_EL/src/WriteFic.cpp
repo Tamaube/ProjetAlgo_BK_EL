@@ -107,8 +107,8 @@ void WriteFic::writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)thro
 
 void WriteFic::generate () throw(string)
 {
-    int n = rand()%MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE;
-    int m  = rand()%MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE;
+    int n = /*  rand()  */ %MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE;
+    int m  =/*  rand()  */ %MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE;
 
     ofstream fic("img_generate.ppm", ios::out | ios::trunc);
     if(fic)
