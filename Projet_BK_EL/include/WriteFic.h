@@ -9,7 +9,12 @@
 #include <ctime>
 #include "Pixel.h"
 #include "Ensemble.h"
+
+/*  On utilise une liste sous forme de vecteur pour stocker la couleur attribuée à chaque ensemble
+ *  Car il est difficile de deviner la taiile nécessaire pour stocker ces informations
+ */
 #include <vector>
+
 
 using namespace std;
 
