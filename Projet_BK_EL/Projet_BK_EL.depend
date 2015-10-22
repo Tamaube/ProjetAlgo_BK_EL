@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1445553202 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
+1445554792 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
 	<iostream>
 	"LecteurImage.h"
 	"testWriteFic.h"
@@ -116,7 +116,7 @@
 	"Pixel.h"
 	"WriteFic.h"
 
-1445536794 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\test\testwritefic.cpp
+1445553202 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\test\testwritefic.cpp
 	"testWriteFic.h"
 
 1445548886 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\testwritefic.h
@@ -132,4 +132,7 @@
 
 1445548886 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\union.h
 	"Pixel.h"
+
+1445548886 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\union.cpp
+	"union.h"
 
