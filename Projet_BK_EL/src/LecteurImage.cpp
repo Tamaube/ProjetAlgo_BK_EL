@@ -83,5 +83,4 @@ LecteurImage::LecteurImage(string nomImage) throw(string)
 LecteurImage::~LecteurImage()
 {
 
-    fichier.close();
 }
