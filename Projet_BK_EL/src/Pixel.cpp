@@ -56,7 +56,11 @@ void Pixel::propageCouleur(Pixel* pixel_Adjacent){
             Ensemble* monEnsemble = this->getEnsemble();
             Ensemble* autreEnsemble = pixel_Adjacent->getEnsemble();
 
-            monEnsemble->addEnsemble_inTail(autreEnsemble);
+            if (monEnsemble->getSize() > autreEnsemble->getSize()){
+                monEnsemble->addEnsemble_inTail(autreEnsemble);
+            } else {
+                autreEnsemble->addEnsemble_inTail(monEnsemble);
+            }
 
 
         }
