@@ -71,7 +71,8 @@ int main()
 
 
     //===================== Lancement de l'algorithme de coloriage =====================
-
+        time_t t_debut_programme;
+        time(&t_debut_programme);
         LecteurImage* l = new LecteurImage(nomFic);
 
         Pixel** tableauPixels = l->tabPixels;
@@ -90,6 +91,13 @@ int main()
         wf->writeThePPMFic(tableauPixels, nbrColonne*nbrLigne);
 
         cout << "Fin de l'ecriture de fichier" << endl;
+
+        time_t t_fin_programme;
+        time(&t_fin_programme);
+        time_t temps_exec = difftime(t_debut_programme, t_fin_programme);
+
+        cout << endl << "Temps du traitement de l'image : " << ctime(&temps_exec) << endl;
+
     } catch(string message)
     {
         cerr << message << endl;

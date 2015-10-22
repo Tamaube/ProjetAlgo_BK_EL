@@ -1,0 +1,138 @@
+# depslib dependency file v1.0
+1445554792 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
+	<iostream>
+	"LecteurImage.h"
+	"testWriteFic.h"
+	"WriteFic.h"
+	"Pixel.h"
+	"Ensemble.h"
+	"union.h"
+
+1445548886 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\ensemble.cpp
+	"Ensemble.h"
+	<cstdlib>
+
+1445548886 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\ensemble.h
+	"Pixel.h"
+	<iostream>
+
+1445372779 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\pixel.h
+	"Ensemble.h"
+
+1445548886 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\lecteurimage.cpp
+	"LecteurImage.h"
+
+1445548886 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\lecteurimage.h
+	"Pixel.h"
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<string>
+
+1444764970 D
+
+1445534190 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
+	"Pixel.h"
+
+1445548954 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
+	<iostream>
+	"LecteurImage.h"
+	"testWriteFic.h"
+	"WriteFic.h"
+	"Pixel.h"
+	"Ensemble.h"
+	"union.h"
+
+1445069708 f2e57437115fd51b139953f6b46d7c78fbd24
+	"WriteFic.h"
+	"WriteFic.h"
+
+1444764970 6592fe0c7505dbbf513bf9bb1ba36122b266e
+	<iostream>
+	"testWriteFic.h"
+
+1445543003 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\ensemble.cpp
+	"Ensemble.h"
+	<cstdlib>
+
+1445543001 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\ensemble.h
+	"Pixel.h"
+	<iostream>
+
+1445458429 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\pixel.h
+	"Ensemble.h"
+
+1445543981 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\lecteurimage.cpp
+	"LecteurImage.h"
+
+1445538292 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\lecteurimage.h
+	"Pixel.h"
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<string>
+
+1445527243 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\pixel.cpp
+	"Pixel.h"
+
+1444580431 84e6153a1acfbcb440a6ee0089ef7157a3f79
+	"Pixel.h"
+
+1445553323 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
+	"WriteFic.h"
+
+1445553202 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\writefic.h
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<cstring>
+	<ctime>
+	"Pixel.h"
+	"Ensemble.h"
+	<vector>
+
+1445069708 h"
+
+1445548532 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\writefic.cpp
+	"WriteFic.h"
+
+1445548352 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\writefic.h
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<cstring>
+	<ctime>
+	"Pixel.h"
+	"Ensemble.h"
+	<vector>
+
+1445548759 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\test\testwritefic.cpp
+	"testWriteFic.h"
+
+1445539393 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\testwritefic.h
+	"Ensemble.h"
+	"Pixel.h"
+	"WriteFic.h"
+
+1445553202 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\test\testwritefic.cpp
+	"testWriteFic.h"
+
+1445548886 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\testwritefic.h
+	"Ensemble.h"
+	"Pixel.h"
+	"WriteFic.h"
+
+1445543025 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\union.h
+	"Pixel.h"
+
+1445543039 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\union.cpp
+	"union.h"
+
+1445548886 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\union.h
+	"Pixel.h"
+
+1445548886 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\union.cpp
+	"union.h"
+
