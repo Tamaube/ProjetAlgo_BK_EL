@@ -32,24 +32,14 @@ bool Pixel::dans_Meme_Ensemble(Pixel* autre_Pixel){
     Pixel* Mon_representant = getEnsemble()->getHead();
 
     Pixel* Son_representant = autre_Pixel->getEnsemble()->getHead();
-
-
-
-
-
-
-    if ( Mon_representant == Son_representant)
-        return Mon_representant == Son_representant;
-    else
-        return Mon_representant == Son_representant;
+    return Mon_representant == Son_representant;
 
 }
 
 void Pixel::propageCouleur(Pixel* pixel_Adjacent){
 
     if(!this->pixelNoir && !pixel_Adjacent->pixelNoir){ // On vérifie que nous n'avons pas à faire avec un pixel noir (oui, il y a discrimination...)
-        bool meme_ensemble = dans_Meme_Ensemble(pixel_Adjacent);
-        if (!meme_ensemble ){
+        if (!dans_Meme_Ensemble(pixel_Adjacent) ){
 
 
 

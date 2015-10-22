@@ -47,7 +47,7 @@ void lire_tableau_pixel(LecteurImage* l){
 
 void Lancer_LecteurImage(){
 
-    LecteurImage* l = new LecteurImage("ImagesTests/vigne.pbm");
+    LecteurImage* l = new LecteurImage("ImagesTests/celtique.pbm");
     lire_tableau_pixel(l);
     l = nullptr;
 
@@ -78,8 +78,6 @@ void Algorithme_Union(){
 
 int main()
 {
-    cout << "Alex est le mal dominant : " << sizeof(int) << endl;
-
     Lancer_LecteurImage();
 
     cout << "Fin de la lecture de l'image." << endl<< endl;
