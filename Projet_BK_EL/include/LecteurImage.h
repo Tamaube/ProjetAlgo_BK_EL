@@ -16,7 +16,6 @@ class LecteurImage
     public:
         LecteurImage(string nomImage);
         ~LecteurImage();
-        void lireMetaDonnees();
         unsigned int tailleX;   //Nombre de pixel en horizontal
         unsigned int tailleY;   //Nombre de pixel en vertical
         Pixel** tabPixels;

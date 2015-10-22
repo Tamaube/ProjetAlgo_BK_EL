@@ -15,8 +15,8 @@ using namespace std;
 
 class WriteFic {
 private:
-    int nbrCol;
-    int nbrLig;
+    int nbrColFic;
+    int nbrLigFic;
     std::vector<unsigned long int> listPtrEnsemble;
     std::vector<char *> listColor;
     std::vector<char *>::iterator itorColor;
@@ -26,13 +26,15 @@ public:
     WriteFic();
     WriteFic(int nbrLig, int nbrCol);
     ~WriteFic();
+
+    void setNbrColFic(int nbrCol){this->nbrColFic = nbrCol;}
+    void setNbrLigFic(int nbrLig){this->nbrLigFic = nbrLig;}
     char* getRandomColor();
     char* getCouleurPixel(void* ptr);
 
-    void ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab );
-    void writeThePPMFic();
+    void writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab);
 
-    void generate(int n, int m);
+    void generate();
 
 };
 

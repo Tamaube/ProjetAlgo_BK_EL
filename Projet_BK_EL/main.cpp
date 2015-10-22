@@ -8,56 +8,7 @@
 
 using namespace std;
 
-Pixel** tableauPixels;
-unsigned int Dimension_X;
-unsigned int Dimension_Y;
-
-
-
-void lire_tableau_pixel(LecteurImage* l){
-
-
-    cout << "== Affichage du tableau de pixel " << endl;
-
-    tableauPixels = l->tabPixels;
-
-    Dimension_X = l->tailleX;  //Nombre de pixel en horizontal
-    Dimension_Y = l->tailleY;  //Nombre de pixel en vertical
-
-    cout << "Dimension du tableau : " << Dimension_X << " par " << Dimension_Y << endl<< endl;
-
-
-
-
-
-/*  //Affichage du contenu du tableau
-    for (unsigned int ligne = 0; ligne < Dimension_Y; ligne++){
-        cout << ligne << "\t(";
-        for (unsigned int col = 0; col < Dimension_X; col++) {
-            if (tableauPixels[col + ligne*Dimension_X].pixelNoir) {
-                cout <<  "1 ";
-            }else {
-                cout <<  "0 ";
-            }
-        }
-        cout << ")" << endl;
-    }
-    */
-}
-
-void Lancer_LecteurImage(){
-
-<<<<<<< HEAD
-    LecteurImage* l = new LecteurImage("ImagesTests/celtique.pbm");
-=======
-    LecteurImage* l = new LecteurImage("ImagesTests/carte_monde.pbm");
->>>>>>> ce2550bf90ff18b34aea85f46cb777446315a75d
-    lire_tableau_pixel(l);
-    l = nullptr;
-
-}
-
-void Algorithme_Union(){
+void Algorithme_Union(Pixel** tableauPixels, unsigned int Dimension_X, unsigned int Dimension_Y){
     unsigned int num_pixel_courant;
     Pixel* pixel_courant;
     for (unsigned int ligne = 0; ligne < Dimension_Y; ligne++) {
@@ -75,39 +26,75 @@ void Algorithme_Union(){
             }
         }
     }
-
-
-
 }
 
 int main()
 {
-    Lancer_LecteurImage();
+    //========================== Interaction utilisateur =====================================
+    string nomFic = "img_generate.ppm";
+    char choixFicPerso;
 
-    cout << "Fin de la lecture de l'image." << endl<< endl;
-
-    cout << " Debut de l'algorithme d'union." << endl;
-
-    Algorithme_Union();
-
-    cout << "Fin de l'algorithme d'union." << endl<< endl;
-
-
-    WriteFic *wf = new WriteFic(Dimension_Y, Dimension_X);
-
-    cout << " Debut de ajEnsembleTable." << endl;
+    cout << "Voulez vous colorer un fichier en particulier ? (o/n)" << endl;
+    cin >> choixFicPerso;
+    while(choixFicPerso != 'o' && choixFicPerso != 'n')
+    {
+        cout << "La reponse doit etre 'o' ou 'n', voulez vous colorer un fichier en particulier ?" << endl;
+        cin >> choixFicPerso;
+    }
 
 
-    wf->ajEnsembleTable(tableauPixels, Dimension_X*Dimension_Y);
-
-    cout << "Fin de ajEnsembleTable." << endl<< endl;
+    WriteFic *wf = new WriteFic();
 
 
-    cout << " Debut de writeThePPMFic." << endl;
+    if (choixFicPerso == 'o'){
+        cout << "Veuillez entrer le chemin du fichier : ";
+        cin >> nomFic;
+        bool isPPM_file = false;
+        int sizeNomFic;
+        do {
+            sizeNomFic = nomFic.size();
+            if(sizeNomFic > 4)
+            {
+                isPPM_file = (nomFic[sizeNomFic - 4] == '.' && nomFic[sizeNomFic - 3] == 'p'
+                              && nomFic[sizeNomFic - 2] == 'p' && nomFic[sizeNomFic - 1] == 'm')
+                              || (nomFic[sizeNomFic - 4] == '.' && nomFic[sizeNomFic - 3] == 'p'
+                              && nomFic[sizeNomFic - 2] == 'b' && nomFic[sizeNomFic - 1] == 'm');
+            }
+            if (!(sizeNomFic > 4 && isPPM_file))
+            {
+                cout << "Sasie incorrect ! (le fichier doit finir par '.ppm' ou '.pbm') Veuillez re - entrer le chemin du fichier : ";
+                cin >> nomFic;
+            }
+        } while(!(sizeNomFic > 4 && isPPM_file));
+    } else {
+        srand(0);
 
-    wf->writeThePPMFic();
+        wf->generate();
 
-    cout << "Fin de ajEnsembleTable." << endl<< endl;
+    }
+
+
+    //===================== Lancement de l'algorithme de coloriage =====================
+    LecteurImage* l = new LecteurImage(nomFic);
+
+
+
+    Pixel** tableauPixels = l->tabPixels;
+
+    unsigned int nbrColonne = l->tailleX;  //Nombre de pixel en horizontal
+    unsigned int nbrLigne = l->tailleY;  //Nombre de pixel en vertical
+
+    free(l);
+
+    Algorithme_Union(tableauPixels, nbrColonne, nbrLigne);
+
+    wf->setNbrColFic(nbrColonne);
+    wf->setNbrLigFic(nbrLigne);
+
+    cout << "Ecriture du fichier en cours ..." << endl;
+    wf->writeThePPMFic(tableauPixels, nbrColonne*nbrLigne);
+
+    cout << "Fin de l'ecriture de fichier" << endl;
 
 
     return 0;

@@ -21,7 +21,7 @@ public:
     ~Ensemble();
 
     Pixel* getHead() { return this->_head;}//Recuperer le representant d'un ensemble
-    Pixel* getTail() { return this->_tail;}
+    Pixel* getTail() { return this->_tail;}//Recuperer la tail d'un ensemble
 
     int getSize(){ return this->_size;}
 

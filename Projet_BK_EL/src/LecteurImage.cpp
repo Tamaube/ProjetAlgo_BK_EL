@@ -22,14 +22,11 @@ LecteurImage::LecteurImage(string nomImage)
 
         std::string chaine_Taillex = dimension.substr(0, separation);
         std::string chaine_Tailley = dimension.substr(separation + 1, dimension.size() -1);
-        cout << "\"" << chaine_Taillex  << "\" " << "\"" << chaine_Tailley  << "\""  << endl;
-        //DEBUG
 
         tailleX = (unsigned int) atoi((char*)chaine_Taillex.c_str());
         tailleY = (unsigned int) atoi((char*)chaine_Tailley.c_str());
 
         cout << "taille de l'image :   " << tailleX << " x "<<tailleY << endl;
-        cout << "taille du malloc  :   "<< tailleX*tailleY *sizeof(Pixel) << " octets "<< endl;
 
 
         tabPixels = (Pixel**) malloc(sizeof(Pixel*) * tailleX * tailleY );
@@ -48,51 +45,17 @@ LecteurImage::LecteurImage(string nomImage)
                 }
             }
         }
-
-
-    } else
-        cerr << "Fonction LecteurImage : Impossible d'ouvrir le fichier " << nomImage << " !" << endl;
-
-
-
     fichier.close();
+
+    } else {
+        cerr << "Fonction LecteurImage : Impossible d'ouvrir le fichier " << nomImage << " !" << endl;
+    }
+
+
+
 }
 
 LecteurImage::~LecteurImage()
 {
-
-}
-
-
-void LecteurImage::lireMetaDonnees() {
-
-        string entete;
-        string dimension;
-
-
-
-        getline(fichier, entete);
-
-        cout << "entete = " << entete << endl;
-
-        getline(fichier, dimension);
-
-        cout << dimension << endl;
-
-        int separation = dimension.find(' ');
-
-        cout << "séparation = " << separation << endl;
-
-
-        std::string chaine_Taillex = dimension.substr(0, separation);
-        std::string chaine_Tailley = dimension.substr(separation + 1, dimension.size() -1);
-        cout << "\"" << chaine_Taillex  << "\" " << "\"" << chaine_Tailley  << "\""  << endl;
-        //DEBUG
-
-        tailleX = (unsigned int) atoi((char*)chaine_Taillex.c_str());
-        tailleY = (unsigned int) atoi((char*)chaine_Tailley.c_str());
-
-        cout << "taille de l'image :   " << tailleX << " x "<<tailleY << endl;
-        cout << "taille du malloc  :   "<< tailleX*tailleY *sizeof(Pixel) << " octets "<< endl;
 
 }

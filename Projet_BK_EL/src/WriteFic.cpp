@@ -2,9 +2,6 @@
 
 char* WriteFic::getRandomColor() {
 
-
-    //cout << "==== Début de la fonction ajEnsembleTable" << endl;
-
     unsigned char c1 = rand()%256;
     unsigned char c2 = rand()%256;
     unsigned char c3 = rand()%256;
@@ -37,21 +34,21 @@ char* WriteFic::getRandomColor() {
 char* WriteFic::getCouleurPixel(void* ptr) {
 
     bool trouve = false;
-    std::vector<unsigned long int>::iterator itor;
+    std::vector<unsigned long int>::iterator itor = listPtrEnsemble.begin ();
     int i = 0;
-    for (itor = listPtrEnsemble.begin (); itor != listPtrEnsemble.end (); ++itor) {
+    while (itor != listPtrEnsemble.end () && !trouve) {
+
         if (listPtrEnsemble[i] == (unsigned long int) ptr) {
             trouve = true;
-        }else if (!trouve) {
+        }else {
             i++;
         }
+        ++itor;
     }
     if (!trouve) {
-
         listPtrEnsemble.push_back((unsigned long int) ptr);
         listColor.push_back(getRandomColor());
     }
-
 
     return listColor[i];
 
@@ -62,63 +59,44 @@ WriteFic::WriteFic(int nbrLig, int nbrCol)
     srand (time(0));
     itorColor = listColor.begin();
 
-    this->nbrCol = nbrCol;
-    this->nbrLig = nbrLig;
-
-    //Allocation de l espace
-    this->tab2D_color = new char*[this->nbrLig * this->nbrCol];
-
-    //initialisation de toute les cases du tab à noir
-    for(int i = 0; i < this->nbrLig; ++i)
-    {
-        for(int j = 0; j < this->nbrCol; ++j)
-        {
-            this->tab2D_color[i * this->nbrCol + j] = "0 0 0";
-        }
-    }
-
-
+    this->nbrColFic = nbrCol;
+    this->nbrLigFic = nbrLig;
 }
 
-WriteFic::WriteFic()
-{
+WriteFic::WriteFic(){
+    srand (time(0));
+    itorColor = listColor.begin();
 }
 
 /*
     ecrit le fichier ppm
     utilise la matrice tab2D_color pour le contenu du fichier
 */
-void WriteFic::writeThePPMFic()
+void WriteFic::writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)
 {
     ofstream fic("result.ppm", ios::out | ios::trunc);
 
-    cout << "WriteThePPM" << endl << this->tab2D_color[0] << endl ;
 
     if(fic)
     {
 
         //Debut du fichier
-        fic << "P3 " << endl << this->nbrCol << " " << this->nbrLig << endl;
+        fic << "P3 " << endl << this->nbrColFic << " " << this->nbrLigFic << endl;
         fic << "255" << endl;
 
         //Contenu du fichier
-        for(int i = 0; i < this->nbrLig; i++)
+        for(int i = 0; i < this->nbrLigFic; i++)
         {
-            for(int j = 0; j < this->nbrCol; j++)
+            for(int j = 0; j < this->nbrColFic; j++)
             {
-                //if (strcmp(this->tab2D_color[i * this->nbrCol + j], "0 0 0"))
-                //{
-
-                    //cout << this->tab2D_color[i * this->nbrCol + j] << " ";
-                    fic <<  this->tab2D_color[i * this->nbrCol + j] << " ";
-                //} else {
-                //    cerr << "Erreur: le pixel " << i << " " << j << " = " <<" a deja ete colore" << endl;
-                //}
+                string color = "0 0 0";
+                if (!tableauPixels[i * this->nbrColFic + j]->pixelNoir){
+                    color = getCouleurPixel(tableauPixels[i * this->nbrColFic + j]->getHead());
+                }
+                fic <<  color << " ";
             }
-            //cout << endl;
             fic << endl;
         }
-
         fic.close();
     } else {
         cerr << "Fonction writeThePPMFic : Erreur lors de la creation du fichier" << endl;
@@ -126,54 +104,12 @@ void WriteFic::writeThePPMFic()
 
 }
 
-/*
-    Permet de stocker la couleur de chaque case dans une matrice tab2D_color
-    tabEnsemble : le tableau contenant tous les ensemble de couleur
-    tailleTab: taille du tableau tabEnsemble et du tabColor
-    tabColor: tableau de couleur pour chaque ensemble
-*/
-void WriteFic::ajEnsembleTable(Pixel** tableauPixels, unsigned int tailleTab )
+
+void WriteFic::generate ()
 {
+    int n = rand()%5000;
+    int m  = rand()%5000;
 
-
-
-    //while (pixelCourant != nullptr) {
-    //    cout << " (" << pixelCourant->getX() << ", " << pixelCourant->getY() << ")";
-    //    pixelCourant = pixelCourant->getNext();
-    //}
-
-
-    //tab2D_color = (char**) malloc(sizeof(char*)*tailleTab);
-
-    for(unsigned int i = 0; i < tailleTab; i++)
-    {
-
-        //cout << getCouleurEnsemble(tableauPixels[i].getEnsemble()) << " ";
-        if (!tableauPixels[i]->pixelNoir){
-
-
-            tab2D_color[i] = getCouleurPixel(tableauPixels[i]->getHead());
-
-        }
-
-        /*Pixel * p = (**(tabEnsemble + i)).getHead();
-        int size_ensemble = (**(tabEnsemble + i)).getSize();
-        for(int j = 0; j < size_ensemble; j++)
-        {
-
-            this->tab2D_color[(p->getX() *  this->nbrCol) + p->getY()] = tabColor[i];
-            p = p->getNext();
-        }*/
-    }
-
-    cout << endl <<"Nombre d'Ensemble trouvé : " << listPtrEnsemble.size() << endl;
-
-
-}
-
-
-void WriteFic::generate (int n, int m)
-{
     ofstream fic("img_generate.ppm", ios::out | ios::trunc);
     if(fic)
     {
