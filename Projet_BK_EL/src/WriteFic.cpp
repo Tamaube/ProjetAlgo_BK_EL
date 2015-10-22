@@ -105,11 +105,11 @@ void WriteFic::writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)thro
 }
 
 
-void WriteFic::generate () throw(string)
+void WriteFic::generate (int n, int m) throw(string)
 {
-    int n = rand()%MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE;
-    int m  = rand()%MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE;
-
+    if(n <= 0 || m <= 0){
+       throw string("la taille donnees en parametre de generate est incorrect");
+    }
     ofstream fic("img_generate.ppm", ios::out | ios::trunc);
     if(fic)
     {
@@ -121,8 +121,12 @@ void WriteFic::generate () throw(string)
         {
             for(int j=0; j < m; ++j){
 
-                int v = rand() %2;
-                fic << v << " ";
+                int v = rand() %3;
+                if (v == 1){
+                    fic << v << " ";
+                } else {
+                    fic << 0 << " ";
+                }
 
             }
             fic << endl;

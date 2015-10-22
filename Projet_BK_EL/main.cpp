@@ -28,35 +28,50 @@ int main()
 
     WriteFic *wf = new WriteFic();
 
-
-    if (choixFicPerso == 'o'){
-        cout << "Veuillez entrer le chemin du fichier : ";
-        cin >> nomFic;
-        bool isPPM_file = false;
-        int sizeNomFic;
-        do {
-            sizeNomFic = nomFic.size();
-            if(sizeNomFic > 4)
-            {
-                isPPM_file = (nomFic[sizeNomFic - 4] == '.' && nomFic[sizeNomFic - 3] == 'p'
-                              && nomFic[sizeNomFic - 2] == 'p' && nomFic[sizeNomFic - 1] == 'm')
-                              || (nomFic[sizeNomFic - 4] == '.' && nomFic[sizeNomFic - 3] == 'p'
-                              && nomFic[sizeNomFic - 2] == 'b' && nomFic[sizeNomFic - 1] == 'm');
+    try{
+        if (choixFicPerso == 'o'){
+            cout << "Veuillez entrer le chemin du fichier : ";
+            cin >> nomFic;
+            bool isPPM_file = false;
+            int sizeNomFic;
+            do {
+                sizeNomFic = nomFic.size();
+                if(sizeNomFic > 4)
+                {
+                    isPPM_file = (nomFic[sizeNomFic - 4] == '.' && nomFic[sizeNomFic - 3] == 'p'
+                                  && nomFic[sizeNomFic - 2] == 'p' && nomFic[sizeNomFic - 1] == 'm')
+                                  || (nomFic[sizeNomFic - 4] == '.' && nomFic[sizeNomFic - 3] == 'p'
+                                  && nomFic[sizeNomFic - 2] == 'b' && nomFic[sizeNomFic - 1] == 'm');
+                }
+                if (!(sizeNomFic > 4 && isPPM_file))
+                {
+                    cout << "Sasie incorrect ! (le fichier doit finir par '.ppm' ou '.pbm') Veuillez re - entrer le chemin du fichier : ";
+                    cin >> nomFic;
+                }
+            } while(!(sizeNomFic > 4 && isPPM_file));
+        } else {
+            int n, m;
+            cout << "Veuillez entrer un nombre de lignes : ";
+            cin >> n;
+            while(n < 0){
+                cout << "Veuillez entrer un nombre de lignes supérieur a zeros: ";
+                cin >> n;
             }
-            if (!(sizeNomFic > 4 && isPPM_file))
-            {
-                cout << "Sasie incorrect ! (le fichier doit finir par '.ppm' ou '.pbm') Veuillez re - entrer le chemin du fichier : ";
-                cin >> nomFic;
-            }
-        } while(!(sizeNomFic > 4 && isPPM_file));
-    } else {
-        wf->generate();
 
-    }
+            cout << "Veuillez entrer un nombre de colonnes : ";
+            cin >> m;
+            while(m < 0){
+                cout << "Veuillez entrer un nombre de colonnes supérieur a zeros: ";
+                cin >> m;
+            }
+
+
+            wf->generate(n, m);
+        }
 
 
     //===================== Lancement de l'algorithme de coloriage =====================
-    try{
+
         LecteurImage* l = new LecteurImage(nomFic);
 
         Pixel** tableauPixels = l->tabPixels;
