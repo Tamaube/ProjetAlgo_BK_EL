@@ -84,7 +84,7 @@ int main()
     unsigned int nbrColonne = l->tailleX;  //Nombre de pixel en horizontal
     unsigned int nbrLigne = l->tailleY;  //Nombre de pixel en vertical
 
-    free(l);
+    delete l;
 
     Algorithme_Union(tableauPixels, nbrColonne, nbrLigne);
 
