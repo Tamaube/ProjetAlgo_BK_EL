@@ -26,7 +26,6 @@ private:
     std::vector<unsigned long int> listPtrEnsemble;
     std::vector<char *> listColor;
     std::vector<char *>::iterator itorColor;
-    const int MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE = 500;
 public:
     char** tab2D_color;
     WriteFic();
@@ -40,7 +39,7 @@ public:
 
     void writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)throw(string);
 
-    void generate()throw(string);
+    void generate(int n, int m)throw(string);
 
 };
 

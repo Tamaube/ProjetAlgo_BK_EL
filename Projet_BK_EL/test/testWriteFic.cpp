@@ -24,7 +24,7 @@ void testGenerate() throw(string)
 {
     //Lance le generate
     WriteFic *wf = new WriteFic();
-    wf->generate();
+    wf->generate(20, 20);
 
     /*
     Ensuite on lit le fichier pour être sur qu il est au bon format
