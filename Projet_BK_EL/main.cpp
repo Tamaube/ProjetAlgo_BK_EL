@@ -47,7 +47,11 @@ void lire_tableau_pixel(LecteurImage* l){
 
 void Lancer_LecteurImage(){
 
+<<<<<<< HEAD
     LecteurImage* l = new LecteurImage("ImagesTests/celtique.pbm");
+=======
+    LecteurImage* l = new LecteurImage("ImagesTests/carte_monde.pbm");
+>>>>>>> ce2550bf90ff18b34aea85f46cb777446315a75d
     lire_tableau_pixel(l);
     l = nullptr;
 
@@ -88,8 +92,6 @@ int main()
 
     cout << "Fin de l'algorithme d'union." << endl<< endl;
 
-    cout << " Construction de l'instance WriteFic..." << endl;
-
 
     WriteFic *wf = new WriteFic(Dimension_Y, Dimension_X);
 
@@ -101,8 +103,11 @@ int main()
     cout << "Fin de ajEnsembleTable." << endl<< endl;
 
 
+    cout << " Debut de writeThePPMFic." << endl;
 
     wf->writeThePPMFic();
+
+    cout << "Fin de ajEnsembleTable." << endl<< endl;
 
 
     return 0;
