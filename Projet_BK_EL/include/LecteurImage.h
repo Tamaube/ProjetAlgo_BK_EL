@@ -14,7 +14,7 @@ class LecteurImage
 
 
     public:
-        LecteurImage(string nomImage);
+        LecteurImage(string nomImage)throw(string);
         ~LecteurImage();
         unsigned int tailleX;   //Nombre de pixel en horizontal
         unsigned int tailleY;   //Nombre de pixel en vertical

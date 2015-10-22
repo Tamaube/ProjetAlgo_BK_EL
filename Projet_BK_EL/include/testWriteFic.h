@@ -6,5 +6,5 @@
 #include "WriteFic.h"
 
 void testEcriture();
-
+void testGenerate()throw(string);
 #endif // TESTWRITEFIC_H_INCLUDED

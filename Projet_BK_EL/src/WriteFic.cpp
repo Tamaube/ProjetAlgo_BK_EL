@@ -72,7 +72,7 @@ WriteFic::WriteFic(){
     ecrit le fichier ppm
     utilise la matrice tab2D_color pour le contenu du fichier
 */
-void WriteFic::writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)
+void WriteFic::writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)throw(string)
 {
     ofstream fic("result.ppm", ios::out | ios::trunc);
 
@@ -99,23 +99,22 @@ void WriteFic::writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)
         }
         fic.close();
     } else {
-        cerr << "Fonction writeThePPMFic : Erreur lors de la creation du fichier" << endl;
+        throw string("Fonction writeThePPMFic : Erreur lors de la creation du fichier");
     }
 
 }
 
 
-void WriteFic::generate ()
+void WriteFic::generate () throw(string)
 {
-    int n = rand()%5000;
-    int m  = rand()%5000;
+    int n = rand()%MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE;
+    int m  = rand()%MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE;
 
     ofstream fic("img_generate.ppm", ios::out | ios::trunc);
     if(fic)
     {
          //Debut du fichier
         fic << "P1 " << endl << m << " " << n << endl;
-        fic << "255" << endl;
 
         //Contenu du fichier
         for(int i = 0; i < n; ++i)
@@ -131,7 +130,7 @@ void WriteFic::generate ()
 
         fic.close();
     } else {
-        cerr << "Fonction generate : Erreur lors de la creation du fichier" << endl;
+        throw string("Fonction generate : Erreur lors de la creation du fichier");
     }
 
 }

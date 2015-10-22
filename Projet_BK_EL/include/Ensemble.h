@@ -25,11 +25,8 @@ public:
 
     int getSize(){ return this->_size;}
 
-    //Ajoute un pixel à la fin de l'ensemble
-    void addPixel(Pixel* p);
-
     //Ajoute un ensemble à la fin, e est le plus petit ensemble
-    void addEnsemble_inTail(Ensemble* e);
+    void addEnsemble_inTail(Ensemble* e)throw(string);
 
 
 };

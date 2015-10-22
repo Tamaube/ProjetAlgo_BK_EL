@@ -13,6 +13,7 @@
 
 using namespace std;
 
+
 class WriteFic {
 private:
     int nbrColFic;
@@ -20,7 +21,7 @@ private:
     std::vector<unsigned long int> listPtrEnsemble;
     std::vector<char *> listColor;
     std::vector<char *>::iterator itorColor;
-
+    const int MAX_TAILLE_LIGNE_COLONNE_FIC_GENERATE = 500;
 public:
     char** tab2D_color;
     WriteFic();
@@ -32,9 +33,9 @@ public:
     char* getRandomColor();
     char* getCouleurPixel(void* ptr);
 
-    void writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab);
+    void writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)throw(string);
 
-    void generate();
+    void generate()throw(string);
 
 };
 

@@ -8,25 +8,17 @@ Ensemble::Ensemble(Pixel* x) {
 
 }
 
-//On ajoute un pixel a la fin
-void Ensemble::addPixel(Pixel* p) {
-    (this->_size)++;
-    (this->_tail)->setNext(p);
-    p->setHead(this->_head);
-    this->_tail = p;
-}
-
 /*Ajoute un ensemble à la fin
   e: le plus petit ensemble
 */
-void Ensemble::addEnsemble_inTail(Ensemble* e){
-
-
+void Ensemble::addEnsemble_inTail(Ensemble* e)throw(string){
+    if(e->getHead() == this->_head)
+    {
+        throw string("Erreur lors de l'ajout de l'ensemble les representants sont les memes");
+    }
     Pixel* p = e->getHead();
     while (p)
     {
-
-
         p->setHead(this->_head);
         p->setEnsemble(this);
         p = p->getNext();
@@ -35,10 +27,5 @@ void Ensemble::addEnsemble_inTail(Ensemble* e){
     this->_size += e->getSize();
     this->_tail->setNext(e->getHead());
     this->_tail = e->getTail();
-    //free(e); //on détruit l'autre ensemble qui ne contient plus aucun pixel.
-
-
-
-
-
+    free(e); //on détruit l'autre ensemble qui ne contient plus aucun pixel.
 }
