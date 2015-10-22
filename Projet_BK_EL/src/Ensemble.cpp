@@ -23,16 +23,12 @@ void Ensemble::addEnsemble_inTail(Ensemble* e){
 
 
     Pixel* p = e->getHead();
-
-    Pixel* AutrePixel;
-
     while (p)
     {
 
 
         p->setHead(this->_head);
         p->setEnsemble(this);
-        AutrePixel = p;
         p = p->getNext();
     }
 
