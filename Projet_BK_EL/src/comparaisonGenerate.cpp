@@ -5,7 +5,7 @@
 Permet de voir les différents cout en temps avec une image de plus en plus grande (question 13)
 
 */
-void comparaison()
+void comparaison() // Benchmark
 {
     for(int i = 1; i <= 20; ++i)
     {

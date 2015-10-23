@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1445554792 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
+1445579970 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\main.cpp
 	<iostream>
 	"LecteurImage.h"
 	"testWriteFic.h"
@@ -7,6 +7,7 @@
 	"Pixel.h"
 	"Ensemble.h"
 	"union.h"
+	"comparaisonGenerate.h"
 
 1445548886 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\ensemble.cpp
 	"Ensemble.h"
@@ -19,7 +20,7 @@
 1445372779 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\pixel.h
 	"Ensemble.h"
 
-1445548886 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\lecteurimage.cpp
+1445579971 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\lecteurimage.cpp
 	"LecteurImage.h"
 
 1445548886 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\lecteurimage.h
@@ -31,7 +32,7 @@
 
 1444764970 D
 
-1445534190 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
+1445581076 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
 	"Pixel.h"
 
 1445557889 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
@@ -79,7 +80,7 @@
 1444580431 84e6153a1acfbcb440a6ee0089ef7157a3f79
 	"Pixel.h"
 
-1445553323 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
+1445579971 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\writefic.cpp
 	"WriteFic.h"
 
 1445553202 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\writefic.h
@@ -150,4 +151,18 @@
 	"union.h"
 	<chrono>
 	<ctime>
+
+1445579970 c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\include\comparaisongenerate.h
+	<iostream>
+	"LecteurImage.h"
+	"testWriteFic.h"
+	"WriteFic.h"
+	"Pixel.h"
+	"Ensemble.h"
+	"union.h"
+	<chrono>
+	<ctime>
+
+1445579971 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\comparaisongenerate.cpp
+	"comparaisonGenerate.h"
 

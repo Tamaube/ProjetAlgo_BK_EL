@@ -1,6 +1,19 @@
 #include "Pixel.h"
 
+/* Ici le MAKESET() */
+Pixel::Pixel (int x, int y, bool noir){
+    this->_x = x;
+    this->_y = y;
+    this->pixelNoir = noir;
+    this->setNext(nullptr);
+    this->setHead(this);
+    if (noir)
+        this->_ensemble = nullptr;
+    else
+        this->_ensemble = new Ensemble(this);
 
+}
+/* SURCHARGE du constructeur pour implicitement déclarer que le pixel n'est pas noir */
 Pixel::Pixel (int x, int y){
     this->_x = x;
     this->_y = y;
@@ -9,24 +22,16 @@ Pixel::Pixel (int x, int y){
     this->setNext(nullptr);
     this->setHead(this);
 }
-Pixel::Pixel (int x, int y, bool noir){
-    this->_x = x;
-    this->_y = y;
-    this->pixelNoir = noir;
-    this->setNext(nullptr);
-    this->setHead(nullptr);
-    if (noir)
-        this->_ensemble = nullptr;
-    else
-        this->_ensemble = new Ensemble(this);
-
-}
 
 Pixel* Pixel:: getHead() {
     return getEnsemble()->getHead();
 
 }//Recuperer le representant dun ensemble, findSet
 
+
+/*  Cette fonction revoie vrai si l'objet pixel sur lequel est appelé cette fonction
+ *  est dans le meme ensemble que celui en paramètre
+ */
 bool Pixel::dans_Meme_Ensemble(Pixel* autre_Pixel){
 
     Pixel* Mon_representant = getEnsemble()->getHead();
@@ -35,6 +40,13 @@ bool Pixel::dans_Meme_Ensemble(Pixel* autre_Pixel){
     return Mon_representant == Son_representant;
 
 }
+
+
+/*  Cette fonction essaye d'ajouter l'ensemble du pixel passé en paramètre dans son ensemble
+ *  si les conditions s'y prêtent :
+ *      - Les deux pixels ne sont pas encore dans le même ensemble.
+ *      - Aucun des deux pixels n'est un pixel noir.
+ */
 
 void Pixel::propageCouleur(Pixel* pixel_Adjacent){
 
