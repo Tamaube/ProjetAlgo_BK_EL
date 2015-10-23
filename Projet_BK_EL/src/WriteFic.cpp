@@ -2,10 +2,12 @@
 
 char* WriteFic::getRandomColor() {
 
+    //Generation de trois couleurs aleatoires
     unsigned char c1 = rand()%256;
     unsigned char c2 = rand()%256;
     unsigned char c3 = rand()%256;
 
+    //On stocke les trois couleurs dans une string
     string result =  "           ";
 
 
@@ -31,11 +33,17 @@ char* WriteFic::getRandomColor() {
     return cstr;
 }
 
+
+/*
+    Permet d'avoir la couleur d'un ensemble
+*/
 char* WriteFic::getCouleurPixel(void* ptr) {
 
     bool trouve = false;
     std::vector<unsigned long int>::iterator itor = listPtrEnsemble.begin ();
     int i = 0;
+
+    //Tant que le representant na pas ete trouve dans listPtrEnsemble on continu de le chercher
     while (itor != listPtrEnsemble.end () && !trouve) {
 
         if (listPtrEnsemble[i] == (unsigned long int) ptr) {
@@ -45,11 +53,15 @@ char* WriteFic::getCouleurPixel(void* ptr) {
         }
         ++itor;
     }
+    /*Si on ne le trouve pas cest que cest un nouvel ensemble pas encore stocké dans listPtrEnsemble
+        et on lui ajoute une couleur corespondante dans listColor (au meme indice que dans listPtrEnsemble)
+    */
     if (!trouve) {
         listPtrEnsemble.push_back((unsigned long int) ptr);
         listColor.push_back(getRandomColor());
     }
 
+    //On renvoi la couleur correspondant a lensemble
     return listColor[i];
 
 }
@@ -90,10 +102,11 @@ void WriteFic::writeThePPMFic(Pixel** tableauPixels, unsigned int tailleTab)thro
             for(int j = 0; j < this->nbrColFic; j++)
             {
                 string color = "0 0 0";
-                if (!tableauPixels[i * this->nbrColFic + j]->pixelNoir){
+                if (!tableauPixels[i * this->nbrColFic + j]->pixelNoir){ //On verifie si le pixel est noir
+                    //On va chercher la couleur de lensemble
                     color = getCouleurPixel(tableauPixels[i * this->nbrColFic + j]->getHead());
                 }
-                fic <<  color << " ";
+                fic <<  color << " "; // on ecrit la couleur
             }
             fic << endl;
         }
@@ -111,7 +124,7 @@ void WriteFic::generate (int n, int m) throw(string)
     if(n <= 0 || m <= 0){
        throw string("la taille donnee en parametre de generate est incorrect");
     }
-    ofstream fic("img_generate.ppm", ios::out | ios::trunc);
+    ofstream fic("img_generate.pbm", ios::out | ios::trunc);
     if(fic)
     {
          //Debut du fichier

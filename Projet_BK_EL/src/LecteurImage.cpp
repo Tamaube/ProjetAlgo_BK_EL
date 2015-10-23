@@ -26,7 +26,7 @@ LecteurImage::LecteurImage(string nomImage) throw(string)
         tailleX = (unsigned int) atoi((char*)chaine_Taillex.c_str());
         tailleY = (unsigned int) atoi((char*)chaine_Tailley.c_str());
 
-        cout << "taille de l'image :   " << tailleX << " x "<<tailleY << endl;
+        cout << "taille de l'image :   " << tailleY << " x "<<tailleX << endl;
 
         //On aloue l espace pour le tableau de pixels
         tabPixels = (Pixel**) malloc(sizeof(Pixel*) * tailleX * tailleY );

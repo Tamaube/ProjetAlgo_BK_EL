@@ -38,6 +38,7 @@
 		<Unit filename="include/LecteurImage.h" />
 		<Unit filename="include/Pixel.h" />
 		<Unit filename="include/WriteFic.h" />
+		<Unit filename="include/comparaisonGenerate.h" />
 		<Unit filename="include/testWriteFic.h" />
 		<Unit filename="include/union.h" />
 		<Unit filename="main.cpp" />
@@ -45,6 +46,7 @@
 		<Unit filename="src/LecteurImage.cpp" />
 		<Unit filename="src/Pixel.cpp" />
 		<Unit filename="src/WriteFic.cpp" />
+		<Unit filename="src/comparaisonGenerate.cpp" />
 		<Unit filename="src/union.cpp" />
 		<Unit filename="test/testWriteFic.cpp" />
 		<Extensions>

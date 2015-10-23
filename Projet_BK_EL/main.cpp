@@ -5,6 +5,7 @@
 #include "Pixel.h"
 #include "Ensemble.h"
 #include "union.h"
+#include "comparaisonGenerate.h"
 
 
 using namespace std;
@@ -13,8 +14,9 @@ using namespace std;
 
 int main()
 {
+
     //========================== Interaction utilisateur =====================================
-    string nomFic = "img_generate.ppm";
+    string nomFic = "img_generate.pbm";
     char choixFicPerso;
 
     cout << "Voulez vous colorer un fichier en particulier ? (o/n)" << endl;
@@ -39,8 +41,6 @@ int main()
                 if(sizeNomFic > 4)
                 {
                     isPPM_file = (nomFic[sizeNomFic - 4] == '.' && nomFic[sizeNomFic - 3] == 'p'
-                                  && nomFic[sizeNomFic - 2] == 'p' && nomFic[sizeNomFic - 1] == 'm')
-                                  || (nomFic[sizeNomFic - 4] == '.' && nomFic[sizeNomFic - 3] == 'p'
                                   && nomFic[sizeNomFic - 2] == 'b' && nomFic[sizeNomFic - 1] == 'm');
                 }
                 if (!(sizeNomFic > 4 && isPPM_file))
@@ -71,8 +71,6 @@ int main()
 
 
     //===================== Lancement de l'algorithme de coloriage =====================
-        time_t t_debut_programme;
-        time(&t_debut_programme);
         LecteurImage* l = new LecteurImage(nomFic);
 
         Pixel** tableauPixels = l->tabPixels;
@@ -92,16 +90,13 @@ int main()
 
         cout << "Fin de l'ecriture de fichier" << endl;
 
-        time_t t_fin_programme;
-        time(&t_fin_programme);
-        time_t temps_exec = difftime(t_debut_programme, t_fin_programme);
 
-        cout << endl << "Temps du traitement de l'image : " << ctime(&temps_exec) << endl;
 
     } catch(string message)
     {
         cerr << message << endl;
     }
+
     return 0;
 }
 

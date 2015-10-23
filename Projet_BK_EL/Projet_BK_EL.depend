@@ -34,7 +34,7 @@
 1445534190 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\pixel.cpp
 	"Pixel.h"
 
-1445548954 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
+1445557889 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\main.cpp
 	<iostream>
 	"LecteurImage.h"
 	"testWriteFic.h"
@@ -42,6 +42,7 @@
 	"Pixel.h"
 	"Ensemble.h"
 	"union.h"
+	"comparaisonGenerate.h"
 
 1445069708 f2e57437115fd51b139953f6b46d7c78fbd24
 	"WriteFic.h"
@@ -62,7 +63,7 @@
 1445458429 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\pixel.h
 	"Ensemble.h"
 
-1445543981 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\lecteurimage.cpp
+1445557935 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\lecteurimage.cpp
 	"LecteurImage.h"
 
 1445538292 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\lecteurimage.h
@@ -94,7 +95,7 @@
 
 1445069708 h"
 
-1445548532 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\writefic.cpp
+1445555356 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\writefic.cpp
 	"WriteFic.h"
 
 1445548352 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\writefic.h
@@ -135,4 +136,18 @@
 
 1445548886 source:c:\users\benkh_000\git\algo_coloration\projetalgo_bk_el\projet_bk_el\src\union.cpp
 	"union.h"
+
+1445558054 source:o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\src\comparaisongenerate.cpp
+	"comparaisonGenerate.h"
+
+1445556306 o:\document\ensimag\1aa\algo_prog\projetalgo\projet_bk_el\include\comparaisongenerate.h
+	<iostream>
+	"LecteurImage.h"
+	"testWriteFic.h"
+	"WriteFic.h"
+	"Pixel.h"
+	"Ensemble.h"
+	"union.h"
+	<chrono>
+	<ctime>
 
